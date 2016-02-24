@@ -1,0 +1,36 @@
+/
+	Top Navbar
+		Options:
+			.navbar-dark		dark color scheme
+			.navbar-static	static navbar
+			.navbar-under		under sidebar
+
+nav.navbar-top
+	.nav-wrapper
+		/ Sidebar toggle
+		a.yay-toggle href="#!"
+			.burg1
+			.burg2
+			.burg3
+		/ Logo
+		= link_to user_root_path, class: 'brand-logo'
+			= image_tag('logo')
+		/ Menu
+		ul
+			li: a.search-bar-toggle: i.mdi-action-search
+			li.user
+				a.dropdown-button data-activates="user-dropdown" href="#!"
+					= image_tag(current_user.avatar, class: 'circle', alt: current_user.display_name)
+					= current_user.display_name
+					i.mdi-navigation-expand-more.right
+				ul.dropdown-content#user-dropdown
+					li: a <i class="fa fa-user"></i> Profile
+					li: a
+						i.fa.fa-envelope
+						| Messages
+						span.badge.new 2 new
+					li: a <i class="fa fa-cogs"></i> Settings
+					li.divider
+					li= link_to destroy_user_session_path, method: :delete
+						i.fa.fa-sign-out
+						| Logout

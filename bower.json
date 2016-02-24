@@ -1,0 +1,39 @@
+{
+  "name": "Online Analysis TV",
+  "authors": [
+    "clthck <joey.corleone92@yahoo.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "keywords": [
+    "Football"
+  ],
+  "license": "MIT",
+  "homepage": "http://onlineanalysis.tv",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "html5shiv": "^3.7.3",
+    "underscore": "^1.8.3",
+    "blockUI": "jquery.blockUI#*",
+    "jquery-requestAnimationFrame": "^0.1.2",
+    "nanoscroller": "^0.8.7",
+    "Materialize": "materialize#^0.97.5",
+    "Sortable": "^1.4.2",
+    "font-awesome": "fontawesome#^4.5.0",
+    "Ionicons": "ionicons#^2.0.1",
+    "weather-icons": "^2.0.10",
+    "datatables": "^1.10.11",
+    "datatables-buttons": "^1.1.2",
+    "datatables-select": "^1.1.2",
+    "parsleyjs": "^2.3.3"
+  }
+}

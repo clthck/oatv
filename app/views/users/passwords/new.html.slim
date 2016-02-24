@@ -1,0 +1,24 @@
+= form_for resource, as: resource_name, url: password_path(resource_name), html: { method: :post }, data: { parsley_validate: true } do |f|
+
+	= flash_notice if notice
+	= flash_alert if alert
+	.logo
+		= image_tag "logo"
+
+	.card-panel
+		.alert.blue.lighten-5.blue-text.text-darken-2
+			strong: i.fa.fa-css3
+			| &nbsp; We'll send instructions to reset your password to your email.
+
+		.row
+			.col.m9.s12
+				/ Email
+				.input-field
+					i.fa.fa-envelope.prefix
+					= f.email_field :email, autofocus: true
+					= f.label :email
+			.col.m3.s12
+				button.waves-effect.waves-light.btn-large.z-depth-0.z-depth-1-hover name="commit" type="submit" Reset
+
+	.links.right-align
+		= render "devise/shared/links"

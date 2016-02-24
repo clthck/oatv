@@ -1,0 +1,69 @@
+@import "./globals/variables";
+
+$dropdown-item-height: 40px;
+
+.btn {
+	&.-real-flat {
+	    color: #039be5;
+	    &:hover { color: #fff; }
+	}
+}
+
+.dropdown-content {
+	li {
+		min-height: $dropdown-item-height;
+		
+		&.divider {
+			min-height: 0;
+		}
+		& > a, & > span {
+			line-height: 22px;
+			padding: (($dropdown-item-height - 22) / 2) 16px;
+		}
+		// Icon alignment override
+		& > a > i {
+			height: inherit;
+			line-height: inherit;
+			margin-bottom: 0;
+		}
+	}
+}
+
+.navbar-top .dropdown-content {
+	li > a > i {
+		height: inherit;
+		line-height: inherit;
+	}
+}
+
+.alert {
+	position: relative;
+	
+	.close {
+		line-height: initial;
+		text-decoration: none;
+		position: absolute;
+		right: 15px;
+		top: 12px;
+	}
+}
+
+input {
+	&.field-with-error {
+		margin-bottom: 5px;
+		border-bottom-color: $error-color;
+		box-shadow: 0 1px 0 0 $error-color;
+	}
+}
+
+.error-message {
+	color: $error-color;
+}
+
+.yay-user-info-name {
+	word-wrap: break-word;
+}
+
+.materialize-text-area-wrapper {
+	margin-top: 2rem;
+}

@@ -1,0 +1,45 @@
+/ Search bar
+.search-bar
+	.layer-overlay
+	.layer-content
+		form
+			/ Header
+			a.search-bar-toggle.grey-text.text-darken-2 href="#!": i.mdi-navigation-close
+			/ Search input
+			.input-field
+				i.mdi-action-search.prefix
+				input type="text" name="con-search" placeholder="Search..."
+			/ Search results
+			.search-results
+				.row
+					.col.s12.l4
+						h4 Users
+						.each-result
+							= image_tag 'logo', class: 'circle photo', alt: 'Felecia Castro'
+							.title Felecia Castro
+							.label Content Manager
+						.each-result
+							= image_tag 'logo', class: 'circle photo', alt: 'Max Brooks'
+							.title Max Brooks
+							.label Programmer
+					.col.s12.l4
+						h4 Articles
+						.each-result
+							.icon.circle.blue.white-text MD
+							.title Material Design
+							.label.nowrap Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eligendi consequartur debitis veritatis dolorum, enim libero!
+						.each-result
+							.icon.circle.teal.white-text: i.fa.fa-dashboard
+							.title Admin Dashboard
+							.label.nowrap Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eligendi consequartur debitis veritatis dolorum, enim libero!
+						.each-result
+							.icon.circle.orange.white-text RD
+							.title Responsive Design
+							.label.nowrap Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eligendi consequartur debitis veritatis dolorum, enim libero!
+						.each-result
+							.icon.circle.red.white-text: i.fa.fa-tablet
+							.title Mobile First
+							.label.nowrap Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eligendi consequartur debitis veritatis dolorum, enim libero!
+					.col.s12.l4
+						h4 Posts
+						.no-result No results were found ;(

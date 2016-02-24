@@ -1,0 +1,35 @@
+.inline-block {
+	display: inline-block;
+}
+
+.no-label + label {
+    padding-left: 10px;
+}
+
+.no-text-transform {
+    text-transform: none;
+}
+
+.no-margin-bottom {
+	margin-bottom: 0;
+}
+
+.no-input-margin-bottom {
+	&, input.select-dropdown {
+		@extend .no-margin-bottom;
+	}
+}
+
+.valign-center {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.center {
+	margin: 0 auto;
+}
+
+.overflow-visible {
+	overflow: visible !important;
+}

@@ -1,0 +1,47 @@
+= form_for resource, as: resource_name, url: session_path(resource_name), data: { parsley_validate: true } do |f|
+
+	.row
+		.col.s6.logo= link_to root_path
+			= image_tag "logo"
+		
+	= flash_notice if notice
+	= flash_alert if alert
+	
+	.card-panel.clearfix
+		/ Social Sign Up
+		/
+			.row.socials
+				.col.s4
+					a.btn.blue.darken-2.z-depth-0.z-depth-1-hover.waves-effect.waves-light href="#!"
+						i.fa-fa-2x.fa-facebook
+				.col.s4
+					a.btn.blue.lighten-2.z-depth-0.z-depth-1-hover.waves-effect.waves-light href="#!"
+						i.fa.fa-2x.fa-twitter
+				.col.s4
+					a.btn.red.z-depth-0.z-depth-1-hover.waves-effect.waves-light href="#!"
+						i.fa.fa-2x.fa-google-plus
+
+			.row: .col
+
+		/ Email
+		.input-field
+			i.fa.fa-user.prefix
+			= f.email_field :email, autofocus: true
+			= f.label :email
+
+		/ Password
+		.input-field
+			i.fa.fa-unlock-alt.prefix
+			= f.password_field :password, autocomplete: "off"
+			= f.label :password
+
+		- if devise_mapping.rememberable?
+			.switch: label
+				= f.check_box :remember_me
+				span.lever
+				| Remember me
+
+		button.waves-effect.waves-light.btn-large.z-depth-0.z-depth-1-hover name="commit" type="submit" Sign In
+
+	.links.right-align
+		= render "devise/shared/links"

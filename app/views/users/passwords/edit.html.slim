@@ -1,0 +1,29 @@
+= form_for resource, as: resource_name, url: password_path(resource_name), html: { method: :put }, data: { parsley_validate: true } do |f|
+
+	= flash_notice if notice
+	= flash_alert if alert
+
+	h2.white-text Change your password
+
+	= f.hidden_field :reset_password_token
+
+	.card-panel
+		/ Password
+		.input-field
+			i.fa.fa-unlock-alt.prefix
+			= f.password_field :password, autocomplete: "off"
+			= f.label :password
+				| New password 
+				- if @minimum_password_length
+					| (#{@minimum_password_length} characters minimum)
+
+		/ Password confirmation
+		.input-field
+			i.fa.fa-unlock-alt.prefix
+			= f.password_field :password_confirmation, autocomplete: "off"
+			= f.label :password_confirmation, "Confirm new password"
+		
+		button.waves-effect.waves-light.btn-large.z-depth-0.z-depth-1-hover name="commit" type="submit" Change my password
+
+	.links.right-align
+		= render "devise/shared/links"

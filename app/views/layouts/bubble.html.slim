@@ -1,0 +1,31 @@
+doctype html
+
+<!--[if lt IE 7]> <html class="lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html>
+<!--<![endif]-->
+	head
+		title= content_for?(:page_title) ? yield(:page_title) : "Online Analysis TV"
+
+		meta http-equiv="X-UA-Compatible" content="IE=edge"
+		meta description=""
+		meta viewport="width=device-width, initial-scale=1.0, maximum-scale=1"
+		= favicon_link_tag
+
+		= stylesheet_link_tag			'bubble', media: 'all', 'data-turbolinks-track' => true
+		= csrf_meta_tags
+
+		/[if lt IE 9]
+			= javascript_include_tag 'html5shiv/dist/html5shiv.min'
+
+	body.nano(id="#{controller_name}-#{action_name}")
+		section#sign-in
+			canvas#bubble-canvas
+			= yield
+
+		= javascript_include_tag	'bubble', 'data-turbolinks-track' => true
+		= yield :script
+
+</html>

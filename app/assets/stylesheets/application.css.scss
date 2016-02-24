@@ -1,0 +1,40 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ */
+
+//= require material-design-icons/css/material-design-icons
+//= require font-awesome
+//= require Ionicons
+//= require weather-icons
+//= require nanoscroller
+//= require_self
+
+@import url("//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900");
+@import "con-material-admin-dashboard/con-deep-purple";
+@import "./base";
+@import "./helpers";
+@import "./modules/*";
+@import "./overrides";
+
+// stylesheets for layout views
+.chat .contacts .list {
+	height: calc(100% - 65px);
+}
+
+.alert .close {
+	height: inherit;
+	margin-top: 0;
+	width: inherit;
+}
+
+// stylesheets for controller views
+@import "./sections/dashboard/*";

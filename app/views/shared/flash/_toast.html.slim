@@ -1,0 +1,8 @@
+- content_for :script
+	javascript:
+		var message = "#{message}";
+
+	coffee:
+		do ($ = window.jQuery, window, document) ->
+			$ ->
+				Materialize.toast message, 4000, 'rounded'

@@ -1,0 +1,47 @@
+/
+	Yay Sidebar
+	Options (you can use all of theme class names):
+		.yay-hide-to-small					no hide menu, just set it small with big icons
+		.yay-static									stop using fixed sidebar (will scroll with content)
+		.yay-gestures								to show and hide menu using gesture swipes
+		.yay-light									light color scheme
+		.yay-hide-on-content-click	hide menu on content click
+
+	Effects (you can use one of these class names):
+		.yay-ovrlay				overlay content
+		.yay-push					push content to right
+		.yay-shrink				shrink content width
+
+aside.yaybar.yay-shrink.yay-hide-to-small.yay-gestures
+	.top
+		div
+			/ Sidebar toggle
+			a.yay-toggle href="#!"
+				.burg1
+				.burg2
+				.burg3
+			/ Logo
+			a.brand-logo href="#!"
+				= image_tag('logo')
+	.nano: .nano-content: ul
+		li.yay-user-info= link_to edit_user_registration_path
+			= image_tag current_user.avatar, class: 'circle', alt: current_user.display_name
+			h3.yay-user-info-name= current_user.display_name
+			.yay-user-location= current_user.role.name.titleize
+				
+		li.label Menu
+		li
+			a.yay-sub-toggle.waves-effect.waves-blue
+				i.fa.fa-dashboard
+				| Dashboards
+				span.yay-collapse-icon.mdi-navigation-expand-more
+			ul
+				li: a.waves-effect.waves-blue Dashboard
+				li: a.waves-effect.waves-blue Dashboard v1
+		li: a.waves-effect.waves-blue
+			i.fa.fa-magic
+			| Widgets
+		li: a.waves-effect.waves-blue
+			i.mdi.mdi-av-web
+			| Layouts
+			span.badge.new new

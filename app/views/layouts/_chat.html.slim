@@ -1,0 +1,138 @@
+/ Chat
+	.chat-light					light color scheme
+
+.chat
+	.layer-overlay
+	.layer-content
+		/ Contacts
+		.contacts
+			/ Top bar
+			.topbar
+				a.text href="#!" Chat
+				a.chat-toggle href="#!": i.mdi-navigation-close
+			.list.nano
+				.nano-content
+					span.label Online
+					.user
+						= image_tag 'logo', class: 'circle photo', alt: 'Felecia Castro'
+						.name Felecia Castro
+						.status Lorem status
+						.online: i.green-text.fa.fa-circle
+					.user
+						= image_tag 'logo', class: 'circle photo', alt: 'Max Brooks'
+						.name Max Brooks
+						.status Lorem status
+						.online: i.yellow-text.fa.fa-circle
+					.user
+						= image_tag 'logo', class: 'circle photo', alt: 'Felecia Castro'
+						.name Felecia Castro
+						.status Lorem status
+						.online: i.green-text.fa.fa-circle
+					.user
+						= image_tag 'logo', class: 'circle photo', alt: 'Max Brooks'
+						.name Max Brooks
+						.status Lorem status
+						.online: i.yellow-text.fa.fa-circle
+					.user
+						= image_tag 'logo', class: 'circle photo', alt: 'Felecia Castro'
+						.name Felecia Castro
+						.status Lorem status
+						.online: i.green-text.fa.fa-circle
+					.user
+						= image_tag 'logo', class: 'circle photo', alt: 'Max Brooks'
+						.name Max Brooks
+						.status Lorem status
+						.online: i.yellow-text.fa.fa-circle
+					.user
+						= image_tag 'logo', class: 'circle photo', alt: 'Felecia Castro'
+						.name Felecia Castro
+						.status Lorem status
+						.online: i.green-text.fa.fa-circle
+					.user
+						= image_tag 'logo', class: 'circle photo', alt: 'Max Brooks'
+						.name Max Brooks
+						.status Lorem status
+						.online: i.yellow-text.fa.fa-circle
+					.user
+						= image_tag 'logo', class: 'circle photo', alt: 'Felecia Castro'
+						.name Felecia Castro
+						.status Lorem status
+						.online: i.green-text.fa.fa-circle
+					.user
+						= image_tag 'logo', class: 'circle photo', alt: 'Max Brooks'
+						.name Max Brooks
+						.status Lorem status
+						.online: i.yellow-text.fa.fa-circle
+					.user
+						= image_tag 'logo', class: 'circle photo', alt: 'Felecia Castro'
+						.name Felecia Castro
+						.status Lorem status
+						.online: i.green-text.fa.fa-circle
+					.user
+						= image_tag 'logo', class: 'circle photo', alt: 'Max Brooks'
+						.name Max Brooks
+						.status Lorem status
+						.online: i.yellow-text.fa.fa-circle
+					.user
+						= image_tag 'logo', class: 'circle photo', alt: 'Felecia Castro'
+						.name Felecia Castro
+						.status Lorem status
+						.online: i.green-text.fa.fa-circle
+					.user
+						= image_tag 'logo', class: 'circle photo', alt: 'Max Brooks'
+						.name Max Brooks
+						.status Lorem status
+						.online: i.yellow-text.fa.fa-circle
+					span.label Offline
+					.user
+						= image_tag 'logo', class: 'circle photo', alt: 'Willie Kelly'
+						.name Willie Kelly
+						.status Lorem status
+					.user
+						= image_tag 'logo', class: 'circle photo', alt: 'Willie Kelly'
+						.name Willie Kelly
+						.status Lorem status
+					.user
+						= image_tag 'logo', class: 'circle photo', alt: 'Willie Kelly'
+						.name Willie Kelly
+						.status Lorem status
+		/ Messages
+		.messages
+			/ Top bar with back link
+			.topbar
+				a.chat-toggle href="#!": i.mdi-navigation-close
+				a.chat-back href="#!"
+					i.mdi-hardware-keyboard-arrow-left
+					| Back
+			/ All messages list
+			.list
+				.nano.scroll-bottom
+					.nano-content
+						.date Monday, Feb 23, 8:23 PM
+						.from-me
+							| Hi, Felicia
+							br
+							| How are you?
+						.clear
+						.from-them
+							= image_tag 'logo', class: 'circle photo', alt: 'John Doe'
+							| Hi! I am good!
+						.clear
+						.from-me
+							| Glad to see you :)
+							br
+							| This long text is intended to show how the chat will display it.
+						.clear
+						.from-them
+							= image_tag 'logo', class: 'circle photo', alt: 'John Doe'
+							| Also, we will send the longest word to show how it will fit in the chat window.
+							strong Pneumoaudsfuwiradfijawieruiajfiaweriajwiofjaiosdjia
+						.date Friday, Mar 10, 5:07 PM
+						.from-me
+							| Hi again!
+			/ Send message
+			.send
+				form
+					.input-field
+						input#chat-message type="text" name="chat-message"
+					button.btn.waves-effect.z-depth-0: i.mdi-content-send

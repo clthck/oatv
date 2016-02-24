@@ -1,0 +1,83 @@
+- content_for :page_title, "Edit Your Account"
+= form_for @user, url: registration_path(:user), html: { method: :put } do |f|
+	
+	= flash_notice if notice
+	= flash_alert if alert
+
+	.card
+		.content
+			.card
+				.title: h5 Authentication Info
+				.content
+					/ Email
+					.input-field
+						i.fa.fa-envelope.prefix
+						= f.email_field :email, autofocus: true
+						= f.label :email
+
+					- if devise_mapping.confirmable? && @user.pending_reconfirmation?
+						div Currently waiting confirmation for: #{@user.unconfirmed_email}
+
+					/ Password
+					.input-field
+						i.fa.fa-key.prefix
+						= f.password_field :password, autocomplete: "off"
+						= f.label :password
+							| Password (leave blank if you don't want to change it)
+							
+					/ Password confirmation
+					.input-field
+						i.fa.fa-key.prefix
+						= f.password_field :password_confirmation, autocomplete: "off"
+						= f.label :password_confirmation
+
+			.card
+				.title: h5 User Profile
+				.content.overflow-visible
+					= f.fields_for :profile do |pf|
+						.input-field
+							i.fa.fa-user.prefix
+							= pf.text_field :full_name
+							= pf.label :full_name
+
+						.input-field
+							i.fa.fa-calendar.prefix
+							= pf.date_field :birthday, class: 'datepicker', value: (l @user.profile.birthday if @user.profile.birthday?)
+							= pf.label :birthday
+
+						.input-field
+							i.fa.fa-venus-mars.prefix
+							= pf.select :gender, [[t(:male), 'male'], [t(:female), 'female']], prompt: true
+							= pf.label :gender
+
+						.input-field.materialize-text-area-wrapper
+							i.fa.fa-quote-left.prefix
+							= pf.text_area :introduction, class: "materialize-textarea"
+							= pf.label :introduction
+
+						.input-field.file-field
+							.btn
+								span Avatar
+								= pf.file_field :avatar
+							.file-path-wrapper
+								input.file-path.validate(type="text" readonly)
+
+		.card-action
+			/ Current password
+			.input-field
+				i.fa.fa-unlock-alt.prefix
+				= f.password_field :current_password, autocomplete: "off"
+				= f.label :current_password
+					| Current password (we need your current password to confirm your changes)
+
+			button.waves-effect.waves-light.btn.z-depth-0.z-depth-1-hover name="commit" type="submit" Update
+
+br
+br
+
+.card
+	.title
+		h3.text-uppercase Account cancellation
+	.content
+		= button_to registration_path(@user), data: { confirm: "Are you sure you want to cancel your account?" }, method: :delete, class: "btn waves-effect waves-light red"
+			| Cancel my account
