@@ -65,6 +65,7 @@
 
 		// For compatibility with turbolinks
 		Waves.displayEffect();
+		Materialize.updateTextFields()
 
 		// Relocate .error-message for .file-field
 		$('.file-field').each(function () {

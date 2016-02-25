@@ -11,6 +11,7 @@
 // about supported directives.
 //
 
+//= require Materialize
 //= require blockUI
 //= require jquery-requestAnimationFrame/dist/jquery.requestAnimationFrame
 //= require nanoscroller
