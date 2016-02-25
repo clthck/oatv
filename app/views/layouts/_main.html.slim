@@ -11,5 +11,5 @@ section.content-wrap
 					i.fa.fa-comments
 	/ Contents
 	section
-		= flash_notice :toast if notice
+		= flash_notice_as_toast if notice
 		= yield

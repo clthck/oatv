@@ -1,15 +1,17 @@
 module ApplicationHelper
 
 	def method_missing(method_name, *args)
-		# define dynamic method :flash_xxxx
-		match = method_name.to_s.match /^flash_(\w+)/
+		# define dynamic method :flash_xxxx and :flash_xxxx_as_toast
+		match = method_name.to_s.match /^flash_(?:((\w+)_as_toast)|(\w+))$/
 		if match
 			self.class.class_eval do
-				define_method(method_name) do |*args|
-					if args.count > 0 && args[0] == :toast
-						render partial: "shared/flash/toast", locals: {message: eval(match[1])}
+				define_method(method_name) do
+					if match[3]
+						# :flash_xxxx
+						render partial: "shared/flash/#{match[3]}"
 					else
-						render partial: "shared/flash/#{match[1]}"
+						# :flash_xxxx_as_toast
+						render partial: "shared/flash/toast", locals: {message: eval(match[2])}
 					end
 				end
 			end
