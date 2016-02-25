@@ -14,7 +14,6 @@
 //= require blockUI
 //= require jquery-requestAnimationFrame/dist/jquery.requestAnimationFrame
 //= require nanoscroller
-//= require Materialize
 //= require Sortable
 
 //= require _base
