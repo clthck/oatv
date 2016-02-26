@@ -16,6 +16,4 @@
 /vendor/assets/bower_components/*
 /.byebug_history
 .DS_Store
-/config/database.yml
 /public/upload/*
-/config/environments/development.rb
