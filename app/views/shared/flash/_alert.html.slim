@@ -1,3 +1,5 @@
-.alert.alert-border-left
-	strong Oh snap! 
-	= alert
+- if alert
+	.alert.alert-border-left
+		strong Oh snap! 
+		= alert
+	- flash.delete :alert

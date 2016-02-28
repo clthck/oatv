@@ -1,3 +1,5 @@
-.alert.alert-dismissible.blue.lighten-2.white-text
-	= notice
-	a.close &times;
+- if notice
+	.alert.alert-dismissible.blue.lighten-2.white-text
+		= notice
+		a.close &times;
+	- flash.delete :notice

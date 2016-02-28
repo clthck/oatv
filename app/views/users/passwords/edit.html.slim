@@ -1,7 +1,7 @@
 = form_for resource, as: resource_name, url: password_path(resource_name), html: { method: :put }, data: { parsley_validate: true } do |f|
 
-	= flash_notice if notice
-	= flash_alert if alert
+	= flash_notice
+	= flash_alert
 
 	h2.white-text Change your password
 

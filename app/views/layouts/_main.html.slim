@@ -7,9 +7,9 @@ section.content-wrap
 				h1= page_title [controller_name.titleize, action_name.titleize].join(' - ')
 				ul= render_breadcrumbs tag: :li, separator: "/ &nbsp;"
 			.col.s12.m3.l2.right-align
-				a.btn.grey.lighten-3.grey-text.z-depth-0.chat-toggle href="#!"
+				a.btn.grey.lighten-3.grey-text.chat-toggle href="#!"
 					i.fa.fa-comments
 	/ Contents
 	section
-		= flash_notice_as_toast if notice
+		= flash_notice_as_toast
 		= yield

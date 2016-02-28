@@ -1,7 +1,7 @@
 = form_for resource, as: resource_name, url: password_path(resource_name), html: { method: :post }, data: { parsley_validate: true } do |f|
 
-	= flash_notice if notice
-	= flash_alert if alert
+	= flash_notice
+	= flash_alert
 	.logo
 		= image_tag "logo"
 

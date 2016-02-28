@@ -1,39 +1,24 @@
-= form_for resource, as: resource_name, url: registration_path(resource_name), data: { parsley_validate: true } do |f|
+= form_for @user, as: resource_name, url: registration_path(resource_name), data: { parsley_validate: true } do |f|
 	
 	.row
 		.col.s6.logo= link_to root_path
 			= image_tag "logo"
 
-	= flash_notice if notice
-	= flash_alert if alert
+	= flash_notice
+	= flash_alert
 	/ = devise_error_messages!
 		
 	.card-panel.clearfix
-		/ Social Sign Up
-		/
-			.row.socials
-				.col.s4
-					a.btn.blue.darken-2.z-depth-0.z-depth-1-hover.waves-effect.waves-light href="#!"
-						i.fa-fa-2x.fa-facebook
-				.col.s4
-					a.btn.blue.lighten-2.z-depth-0.z-depth-1-hover.waves-effect.waves-light href="#!"
-						i.fa.fa-2x.fa-twitter
-				.col.s4
-					a.btn.red.z-depth-0.z-depth-1-hover.waves-effect.waves-light href="#!"
-						i.fa.fa-2x.fa-google-plus
-
-			.row: .col
-
 		/ Email
 		.input-field
 			i.fa.fa-user.prefix
-			= f.email_field :email, autofocus: true
+			= f.email_field :email, autofocus: true, required: true
 			= f.label :email
 
 		/ Password
 		.input-field
 			i.fa.fa-unlock-alt.prefix
-			= f.password_field :password, autocomplete: "off"
+			= f.password_field :password, autocomplete: "off", required: true
 			= f.label :password
 				| Password 
 				- if @minimum_password_length
@@ -42,8 +27,21 @@
 		/ Password confirmation
 		.input-field
 			i.fa.fa-unlock-alt.prefix
-			= f.password_field :password_confirmation, autocomplete: "off"
+			= f.password_field :password_confirmation, autocomplete: "off", required: true
 			= f.label :password_confirmation
+
+		= f.fields_for :club do |ff|
+			/ Club name
+			.input-field
+				i.fa.fa-futbol-o.prefix
+				= ff.text_field :name, required: true
+				= ff.label :name, 'Your Club Official Name'
+
+			/ Club nationality
+			.input-field
+				i.fa.fa-flag.prefix
+				= ff.collection_select :country_id, Oatv::Country.all.order(:name), :id, :name, prompt: 'Please select your club nationality'
+				= ff.label :country_id, t('Club Nationality')
 
 		button.waves-effect.waves-light.btn-large.z-depth-0.z-depth-1-hover name="commit" type="submit" Sign Up
 

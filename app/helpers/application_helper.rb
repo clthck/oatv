@@ -11,7 +11,7 @@ module ApplicationHelper
 						render partial: "shared/flash/#{match[3]}"
 					else
 						# :flash_xxxx_as_toast
-						render partial: "shared/flash/toast", locals: {message: eval(match[2])}
+						render partial: "shared/flash/toast", locals: { type: match[2].to_sym }
 					end
 				end
 			end
@@ -24,6 +24,11 @@ module ApplicationHelper
 	# Get page title
 	def page_title(default = nil)
 		content_for(:page_title) || default
+	end
+
+	# Get DOM element class to indicate whether current path equals the provided link path
+	def cp(path)
+		"active" if current_page? path
 	end
 
 end

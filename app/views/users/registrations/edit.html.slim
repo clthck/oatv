@@ -1,8 +1,8 @@
 - content_for :page_title, "Edit Your Account"
 = form_for @user, url: registration_path(:user), html: { method: :put } do |f|
 	
-	= flash_notice if notice
-	= flash_alert if alert
+	= flash_notice
+	= flash_alert
 
 	.card
 		.content

@@ -1,8 +1,10 @@
-- content_for :script
-	javascript:
-		var message = "#{message}";
+- if flash[type]
+	- content_for :script
+		javascript:
+			var toast_message = "#{flash[type]}";
 
-	coffee:
-		do ($ = window.jQuery, window, document) ->
-			$ ->
-				Materialize.toast message, 4000, 'rounded'
+		coffee:
+			do ($ = window.jQuery, window, document) ->
+				$ ->
+					Materialize.toast toast_message, 4000, 'rounded'
+	- flash.delete type
