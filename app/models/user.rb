@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
 	belongs_to :role
 	before_create :set_default_role
 
+	belongs_to :club
+	accepts_nested_attributes_for :club
+
 	has_one :profile, dependent: :destroy
 	accepts_nested_attributes_for :profile
 
