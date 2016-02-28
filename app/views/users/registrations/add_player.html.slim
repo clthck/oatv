@@ -1,0 +1,29 @@
+- content_for :page_title, "Add Player"
+
+= flash_notice
+= flash_alert
+
+.card-panel
+	= form_for @user, url: users_add_player_path, html: { method: :post }, data: { parsley_validate: true } do |f|
+		/ Email
+		.input-field
+			i.fa.fa-envelope.prefix
+			= f.email_field :email, autofocus: true, required: true
+			= f.label :email
+
+		/ Password
+		.input-field
+			i.fa.fa-unlock-alt.prefix
+			= f.password_field :password, autocomplete: "off", required: true
+			= f.label :password
+				| Password 
+				- if @minimum_password_length
+					| (#{@minimum_password_length} characters minimum)
+
+		/ Password confirmation
+		.input-field
+			i.fa.fa-unlock-alt.prefix
+			= f.password_field :password_confirmation, autocomplete: "off", required: true
+			= f.label :password_confirmation
+
+		button.btn.waves-effect.waves-light.z-depth-1-hover name="commit" type="submit" Send Email

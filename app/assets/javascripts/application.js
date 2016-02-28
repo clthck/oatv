@@ -15,6 +15,7 @@
 //= require jquery-requestAnimationFrame/dist/jquery.requestAnimationFrame
 //= require nanoscroller
 //= require Sortable
+//= require parsleyjs
 //= require datatables
 //= require datatables-buttons
 //= require datatables-select
