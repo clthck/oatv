@@ -1,0 +1,44 @@
+- content_for :page_title, 'Choose Subscription Plan'
+= flash_notice
+
+.pricing-table
+	.pt-col-3
+		.pt-header
+			.pt-title Free
+			.pt-price
+				span.pt-currency $
+				span.pt-amount 0
+		ul.pt-features
+			li <strong>1</strong> Project
+			li <strong>1GB</strong> Storage
+			li No Support
+		.pt-footer
+			= link_to 'Activate', activate_subscription_plan_clubs_path, class: "btn btn-primary waves-effect waves-light", role: 'button', method: :post
+
+	.pt-col-3.pt-featured
+		.pt-header
+			.pt-title Standard
+			.pt-price
+				span.pt-currency $
+				span.pt-amount 50
+				span.pt-period= " / mo"
+		ul.pt-features
+			li <strong>10</strong> Project
+			li <strong>5GB</strong> Storage
+			li 24/7 Technical Support
+		.pt-footer
+			= link_to 'Activate', activate_subscription_plan_clubs_path, class: "btn btn-primary waves-effect waves-light", role: 'button', method: :post
+
+	.pt-col-3
+		.pt-header
+			.pt-title Professional
+			.pt-price
+				span.pt-currency $
+				span.pt-amount 70
+				span.pt-period= " / mo"
+		ul.pt-features
+			li <strong>25</strong> Project
+			li <strong>20GB</strong> Storage
+			li 24/7 Technical Support
+		.pt-footer
+			= link_to 'Activate', activate_subscription_plan_clubs_path, class: "btn btn-primary waves-effect waves-light", role: 'button', method: :post
