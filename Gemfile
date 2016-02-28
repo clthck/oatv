@@ -37,6 +37,12 @@ gem 'babosa'
 
 gem 'breadcrumbs_on_rails'
 
+gem 'yt', '~> 0.25.6'
+
+gem 'countries', require: 'countries/global'
+
+gem 'schema_plus'
+
 # gem 'protected_attributes'
 
 # Use ActiveModel has_secure_password

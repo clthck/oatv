@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  match_id: 
+  shots_on_goals: 1
+  corners: 1
+  goals: 1
+
+two:
+  match_id: 
+  shots_on_goals: 1
+  corners: 1
+  goals: 1

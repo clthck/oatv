@@ -37,5 +37,7 @@ module Oatv
     }
 
     config.action_controller.action_on_unpermitted_parameters = :raise
+
+    Yt.configuration.api_key = ENV['OATV_YOUTUBE_API_KEY']
   end
 end

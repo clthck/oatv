@@ -32,7 +32,7 @@ class Ability
     alias_action :index, to: :access
 
     user ||= User.new
-    if user.is? :admin
+    if user.is? :super_admin
       can :manage, :all
     else
       can :access, :dashboard

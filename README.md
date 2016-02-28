@@ -45,6 +45,7 @@ echo 'export OATV_POSTGRES_DATABASE_DEVELOPMENT="oatv_development"' >> ~/.bash_p
 echo 'export OATV_POSTGRES_DATABASE_TEST="oatv_test"' >> ~/.bash_profile
 echo 'export OATV_POSTGRES_DATABASE_PRODUCTION="oatv_production"' >> ~/.bash_profile
 echo 'export OATV_ACTION_MAILER_HOST="your_servers_public_ip"' >> ~/.bash_profile
+echo 'export OATV_YOUTUBE_API_KEY="youtube_api_key"' >> ~/.bash_profile
 ```
 
 ## Running OATV
