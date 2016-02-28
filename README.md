@@ -39,6 +39,7 @@ sudo npm install -g bower
 OATV uses environment variables for some configurations.
 Run the following commands to set necessary env vars properly.
 ```shell
+echo 'export OATV_RAILS_SERVER_BINDING="your public server IP"' >> ~/.bash_profile
 echo 'export OATV_POSTGRES_USERNAME="pg_username"' >> ~/.bash_profile
 echo 'export OATV_POSTGRES_PASSWORD="pg_password"' >> ~/.bash_profile
 echo 'export OATV_POSTGRES_DATABASE_DEVELOPMENT="oatv_development"' >> ~/.bash_profile
