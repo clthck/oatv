@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160228015922) do
+ActiveRecord::Schema.define(version: 20160228032509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20160228015922) do
   end
 
   create_table "clubs", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",       index: {name: "index_clubs_on_name_and_country_id", with: ["country_id"], unique: true}
     t.integer  "country_id", index: {name: "index_clubs_on_country_id"}, foreign_key: {references: "countries", name: "fk_rails_38ad3459ad", on_update: :no_action, on_delete: :no_action}
     t.boolean  "active"
     t.datetime "created_at", null: false
