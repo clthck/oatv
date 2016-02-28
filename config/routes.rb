@@ -6,6 +6,13 @@ Rails.application.routes.draw do
     passwords: "users/passwords",
     unlocks: "users/unlocks"
   }
+
+  devise_scope :user do
+    get '/users/add_coach' => 'users/registrations#add_coach'
+    post '/users/add_coach' => 'users/registrations#create_coach'
+    get '/users/add_player' => 'users/registrations#add_player'
+    post '/users/add_player' => 'users/registrations#create_player'
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -68,4 +75,11 @@ Rails.application.routes.draw do
   get '/dashboard' => 'dashboard#index', as: :user_root
 
   resources :dashboard, only: [:index]
+
+  resources :clubs, only: [] do
+    collection do
+      get :choose_subscription_plan
+      post :activate_subscription_plan
+    end
+  end
 end
