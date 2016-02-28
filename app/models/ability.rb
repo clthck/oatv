@@ -31,11 +31,18 @@ class Ability
 
     alias_action :index, to: :access
 
+    can :access, :dashboard
+
     user ||= User.new
     if user.is? :super_admin
       can :manage, :all
+    elsif user.is? :club_admin
+      can :add, :coach
+      can :add, :player
+      can :manage, Club
+    elsif user.is? :coach
+      can :add, :player
     else
-      can :access, :dashboard
     end
   end
 end

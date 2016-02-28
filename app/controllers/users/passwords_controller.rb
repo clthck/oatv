@@ -1,4 +1,5 @@
 class Users::PasswordsController < Devise::PasswordsController
+  skip_load_and_authorize_resource
   layout "bubble"
   # GET /resource/password/new
   # def new

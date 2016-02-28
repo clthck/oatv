@@ -1,4 +1,5 @@
 class Users::SessionsController < Devise::SessionsController
+  skip_load_and_authorize_resource
 # before_filter :configure_sign_in_params, only: [:create]
   layout "bubble"
 

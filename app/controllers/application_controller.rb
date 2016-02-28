@@ -6,6 +6,9 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  # CanCanCan
+  load_and_authorize_resource
+
   add_breadcrumb "<i class='fa fa-home'></i> Home".html_safe, :user_root_path
 
   private
@@ -18,6 +21,11 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) do |p|
+      p.permit :email, :password, :password_confirmation, :role_id, :club_id,
+        club_attributes: [:name, :country_id, :active]
+    end
+
   	devise_parameter_sanitizer.for(:account_update) do |p|
   		p.permit :email, :password, :password_confirmation, :current_password, 
   			profile_attributes: [:id, :full_name, :birthday, :gender, :introduction, :avatar]

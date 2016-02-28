@@ -1,4 +1,5 @@
 class Users::ConfirmationsController < Devise::ConfirmationsController
+  skip_load_and_authorize_resource
   layout "bubble"
   # GET /resource/confirmation/new
   # def new
