@@ -1,0 +1,31 @@
+li.label Dashboard
+
+li class="#{cp user_root_path}"
+	= link_to user_root_path, class: "waves-effect waves-blue"
+		i.fa.fa-dashboard
+		| Dashboard
+
+li.label User Management
+
+li class="#{cp edit_user_registration_path}"
+	= link_to edit_user_registration_path, class: "waves-effect waves-blue"
+		i.fa.fa-cog
+		| Edit My Profile
+
+li
+	a.yay-sub-toggle.waves-effect.waves-blue
+		i.fa.fa-user-plus
+		| Add User
+		span.yay-collapse-icon.mdi-navigation-expand-more
+	ul
+		li class="#{cp users_add_coach_path}"
+			= link_to 'Coach', users_add_coach_path, class: "waves-effect waves-blue"
+		li class="#{cp users_add_player_path}"
+			= link_to 'Player', users_add_player_path, class: "waves-effect waves-blue"
+
+li.label Club Management
+
+li class="#{cp choose_subscription_plan_clubs_path}"
+	= link_to choose_subscription_plan_clubs_path, class: "waves-effect waves-blue"
+		i.fa.fa-cog
+		| Manage Subscription Plan

@@ -1,0 +1,13 @@
+li.label Dashboard
+
+li class="#{cp user_root_path}"
+	= link_to user_root_path, class: "waves-effect waves-blue"
+		i.fa.fa-dashboard
+		| Dashboard
+
+li.label User Management
+
+li class="#{cp edit_user_registration_path}"
+	= link_to edit_user_registration_path, class: "waves-effect waves-blue"
+		i.fa.fa-cog
+		| Edit My Profile

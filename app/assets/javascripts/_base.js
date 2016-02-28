@@ -8,7 +8,7 @@
 })(function($, window, document) {
 
 	var $bodyEl = $('body'),
-		inputOldValue;
+		inputOldValue, $sideNav;
 
 	/**
 	 * Define custom event 'changeBlur' for form input elements
@@ -65,13 +65,17 @@
 
 		// For compatibility with turbolinks
 		Waves.displayEffect();
-		Materialize.updateTextFields()
+		Materialize.updateTextFields();
 
 		// Relocate .error-message for .file-field
 		$('.file-field').each(function () {
 			var $this = $(this);
 			$('input[type="file"] ~ .error-message', $this).appendTo($this);
 		});
+
+		// Open corresponding side nav menu with active child item
+		$sideNav = $(document.getElementById('side-nav'));
+		$sideNav.find('li.active').parents('ul').parents('li').addClass('open');
 
 	});
 
