@@ -1,0 +1,11 @@
+- content_for :page_title, "Match Categories"
+
+.card-panel
+	table#match-categories-table.display.table.table-bordered.table-striped.table-hover
+		thead: tr
+			th
+			th Name
+		tbody
+
+javascript:
+	R.dataTableAjaxPath = "#{matches_match_categories_path}";

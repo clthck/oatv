@@ -16,13 +16,11 @@
 //= require nanoscroller
 //= require Sortable
 //= require parsleyjs
-//= require datatables
 //= require datatables-buttons
 //= require datatables-select
+//= require datatables-editor/dataTables.editor
 //= require con-material-admin-dashboard/_con
 
 //= require _base
 //= require_tree ./sections/dashboard/
-
-//= require _R
-
+//= require_tree ./sections/matches/

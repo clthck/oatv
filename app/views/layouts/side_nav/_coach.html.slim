@@ -5,7 +5,7 @@ li class="#{cp user_root_path}"
 		i.fa.fa-dashboard
 		| Dashboard
 
-li.label User Management
+li.label User
 
 li class="#{cp edit_user_registration_path}"
 	= link_to edit_user_registration_path, class: "waves-effect waves-blue"
@@ -20,3 +20,10 @@ li
 	ul
 		li class="#{cp users_add_player_path}"
 			= link_to 'Player', users_add_player_path, class: "waves-effect waves-blue"
+
+li.label Matches
+
+li class="#{cp matches_match_categories_path}"
+	= link_to matches_match_categories_path, class: "waves-effect waves-blue"
+		i.fa.fa-cog
+		| Match Categories

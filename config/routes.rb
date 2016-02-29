@@ -82,4 +82,12 @@ Rails.application.routes.draw do
       post :activate_subscription_plan
     end
   end
+
+  namespace :matches do
+    resources :match_categories, except: [:create] do
+      collection do
+        post '/' => 'match_categories#datatables_editor_cud'
+      end
+    end
+  end
 end

@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
 
   add_breadcrumb "<i class='fa fa-home'></i> Home".html_safe, :user_root_path
 
+  Parameters = ActionController::Parameters
+
   private
 
   # Overwriting the sign_out redirect path method
