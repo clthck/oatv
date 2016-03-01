@@ -49,11 +49,7 @@ echo 'export OATV_ACTION_MAILER_HOST="your_servers_public_ip"' >> ~/.bash_profil
 echo 'export OATV_YOUTUBE_API_KEY="youtube_api_key"' >> ~/.bash_profile
 ```
 
-## Running OATV
-
-Now we're ready to run OATV application.
-
-### Development Mode
+### Final Preparations
 
 ```shell
 cd ~/oatv
@@ -61,5 +57,14 @@ bundle install
 bower install
 rake db:migrate
 rake db:seed
-rails s -b <YOUR SERVER's PUBLIC IP>
+```
+
+## Running OATV
+
+Now we're ready to run OATV application.
+
+### Development Mode
+
+```shell
+rails s
 ```

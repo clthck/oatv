@@ -1,8 +1,5 @@
 (function (init) {
 
-	window.R = window.R || {};
-	window.R.pages = window.R.pages || {};
-
 	init(window.jQuery, window, document);
 
 })(function($, window, document) {
@@ -76,6 +73,11 @@
 		// Open corresponding side nav menu with active child item
 		$sideNav = $(document.getElementById('side-nav'));
 		$sideNav.find('li.active').parents('ul').parents('li').addClass('open');
+
+		// Materialize dataTable Editor buttons
+		$('.dt-buttons').addClass('btn-group');
+		$('.dt-button').addClass('btn btn-rounded waves-effect waves-light');
+		$('.dataTables_length').addClass('ml-20');
 
 	});
 
