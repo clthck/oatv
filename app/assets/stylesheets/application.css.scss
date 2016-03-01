@@ -38,6 +38,15 @@
 	width: inherit;
 }
 
+.progress {
+	background-color: $primary-color;
+	margin: 0;
+}
+
+#turbolinks-progress {
+	display: none;
+}
+
 // stylesheets for controller views
 @import "./sections/dashboard/*";
 @import "./sections/matches/*";
