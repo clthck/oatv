@@ -19,6 +19,9 @@
 //= require datatables-buttons
 //= require datatables-select
 //= require datatables-editor/dataTables.editor
+//= require moment
+//= require pikaday
+//= require pikaday/plugins/pikaday.jquery
 //= require con-material-admin-dashboard/_con
 
 //= require _base

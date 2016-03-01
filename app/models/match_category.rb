@@ -28,6 +28,10 @@ class MatchCategory < ActiveRecord::Base
 					status: 'Match category name has already been taken.'
 				}]
 			}
+		rescue ActiveRecord::InvalidForeignKey => e
+			json_data = {
+				error: "One or more categories are currently being referred by some matches!"
+			}
 		end
 	end
 

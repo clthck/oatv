@@ -13,7 +13,7 @@ OATV application requires Ruby v2.3.0 and Rails v4.2.5. Please refer to [this gu
 After that, let's clone OATV app from git remote repo:
 ```shell
 cd ~
-git clone https://gitlab.com/clthck/oatv.git
+git clone https://github.com/clthck/oatv.git
 ```
 
 ## Additional Setup

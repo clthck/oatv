@@ -252,6 +252,10 @@ div.DTE_Body div.DTE_Body_Content {
       width: 60%;
     }
 
+    > div.DTE_Field_Input .select-wrapper input.select-dropdown {
+      margin-bottom: 0;
+    }
+
     &.full {
       padding: 5px 0 5px 20%;
     }
@@ -611,6 +615,8 @@ div.DTED_Lightbox_Wrapper div.DTED_Lightbox_Container {
     box-shadow: 2px 2px 10px #555;
     box-sizing: border-box;
     display: block;
+    overflow-y: visible;
+    position: relative;
     width: 650px;
 
     div.DTE {
