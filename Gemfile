@@ -32,6 +32,7 @@ gem 'slim'
 gem 'high_voltage'
 
 gem 'sass-globbing'
+gem 'autoprefixer-rails'
 
 gem 'paperclip', '~> 4.3'
 gem 'babosa'
