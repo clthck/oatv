@@ -47,7 +47,7 @@ div.DTE {
 
 div.DTE_Form_Buttons::after {
   clear: both;
-  content: '';
+  content: "";
   display: block;
 }
 
@@ -221,7 +221,7 @@ div.DTE_Body {
 div.DTE_Body div.DTE_Body_Content {
   div.DTE_Form_Info {
     margin: 0;
-    padding: 1em 1em 0 1em;
+    padding: 1em 1em 0;
   }
 
   div.DTE_Field {
@@ -440,7 +440,7 @@ div.DTE_Bubble div.DTE_Bubble_Liner {
 
     &:after {
       color: white;
-      content: '\00d7';
+      content: "\00d7";
       font-family: 'Courier New', Courier, monospace;
       font-size: 18px;
       font-weight: bold;
@@ -469,7 +469,7 @@ div.DTE_Bubble div.DTE_Bubble_Triangle {
 
 div.DTE_Bubble.DTE_Processing div.DTE_Bubble_Liner:after {
   background: image-url("ajax-loader-small.gif") no-repeat top left;
-  content: ' ';
+  content: " ";
   display: block;
   height: 12px;
   position: absolute;
@@ -558,7 +558,7 @@ div.DTE_Inline div.DTE_Field {
 
 div.DTE_Inline.DTE_Processing:after {
   background: image-url("ajax-loader-small.gif") no-repeat top left;
-  content: ' ';
+  content: " ";
   display: block;
   height: 12px;
   position: absolute;
@@ -644,7 +644,7 @@ div.DTED_Lightbox_Wrapper div.DTED_Lightbox_Container {
     }
 
     div.DTED_Lightbox_Close:after {
-      content: '\00d7';
+      content: "\00d7";
       font-family: 'Courier New', Courier, monospace;
       font-size: 24px;
       font-weight: bold;
@@ -1031,7 +1031,7 @@ div.editor-datetime table {
     color: #777;
     font-size: 0.8em;
     font-weight: normal;
-    padding: 0 0 4px 0;
+    padding: 0 0 4px;
     text-align: center;
     width: 14.285714286%;
   }
@@ -1178,13 +1178,17 @@ div.editor-datetime {
 }
 
 table.dataTable {
-  td, th {
+  td,
+  th {
     border-radius: 0;
   }
 }
 table.dataTable.display tbody tr.selected {
-  &, &.odd, &.even,
-  &.odd:hover, &.even:hover {
+  &,
+  &.odd,
+  &.even,
+  &.odd:hover,
+  &.even:hover {
     background-color: lighten($primary-color, 20%);
     > .sorting_1 {
       background-color: lighten($primary-color, 20%);
