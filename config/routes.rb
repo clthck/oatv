@@ -89,5 +89,11 @@ Rails.application.routes.draw do
         post '/' => 'match_categories#datatables_editor_cud'
       end
     end
+
+    resources :matches, only: [:index] do
+      collection do
+        post '/' => 'matches#datatables_editor_cud'
+      end
+    end
   end
 end

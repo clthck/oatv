@@ -43,6 +43,7 @@ class Ability
     elsif user.is? :coach
       can :add, :player
       can :manage, MatchCategory
+      can :manage, Match
     else
     end
   end
