@@ -15,7 +15,7 @@ R.pages['match_categories-index'] = do ($ = jQuery, window, document) ->
 				name: 'name'
 			}]
 			i18n: {
-				create: { title: "Crate New Category" }
+				create: { title: "Create New Category" }
 				edit: { title: "Edit Category" }
 			}
 
@@ -23,7 +23,7 @@ R.pages['match_categories-index'] = do ($ = jQuery, window, document) ->
 			destroy: true
 			dom: "Bfrtilpr"
 			ajax: R.dataTableAjaxPath
-			iDisplayLength: 5
+			iDisplayLength: 10
 			aLengthMenu: [ [5, 10, 25, 50, -1], [5, 10, 25, 50, "all"] ]
 			columns: [
 				{
