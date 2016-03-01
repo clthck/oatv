@@ -34,6 +34,8 @@
     "datatables": "^1.10.11",
     "datatables-buttons": "^1.1.2",
     "datatables-select": "^1.1.2",
-    "parsleyjs": "^2.3.3"
+    "parsleyjs": "latest",
+    "pikaday": "latest",
+    "moment": "latest"
   }
 }

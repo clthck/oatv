@@ -16,6 +16,7 @@
 //= require Ionicons
 //= require weather-icons
 //= require nanoscroller
+//= require pikaday
 //= require_self
 
 @import url("//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900");
@@ -39,3 +40,4 @@
 
 // stylesheets for controller views
 @import "./sections/dashboard/*";
+@import "./sections/matches/*";
