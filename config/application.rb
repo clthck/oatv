@@ -24,16 +24,16 @@ module Oatv
     config.active_record.raise_in_transactional_callbacks = true
 
     config.action_view.field_error_proc = ->(html_tag, instance) {
-        tag = Nokogiri::HTML::DocumentFragment.parse(html_tag)
-        tag.children.add_class "field-with-error parsley-error"
+      tag = Nokogiri::HTML::DocumentFragment.parse(html_tag)
+      tag.children.add_class "field-with-error parsley-error"
 
-        unless instance.instance_of? ActionView::Helpers::Tags::Label
-          field_name = tag.children[0].attribute("name").value.match(/\[(\w+)\]/)[1]
-          tag.add_child "<ul class='parsley-errors-list'>" \
-                          "<li class='parsley-type'>#{field_name.humanize} #{instance.error_message[0]}</li>" \
-                        "</ul>"
-        end
-        tag.to_s.html_safe
+      unless instance.instance_of? ActionView::Helpers::Tags::Label
+        field_name = tag.children[0].attribute("name").value.match(/\[(\w+)\]/)[1]
+        tag.add_child "<ul class='parsley-errors-list'>" \
+        "<li class='parsley-type'>#{field_name.humanize} #{instance.error_message[0]}</li>" \
+        "</ul>"
+      end
+      tag.to_s.html_safe
     }
 
     config.action_controller.action_on_unpermitted_parameters = :raise
