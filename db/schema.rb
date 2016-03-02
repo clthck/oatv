@@ -110,10 +110,24 @@ ActiveRecord::Schema.define(version: 20160229120030) do
   end
 
   create_table "match_stats", force: :cascade do |t|
-    t.integer "match_id",       index: {name: "index_match_stats_on_match_id"}, foreign_key: {references: "matches", name: "fk_match_stats_match_id", on_update: :no_action, on_delete: :no_action}
-    t.integer "shots_on_goals"
-    t.integer "corners"
-    t.integer "goals"
+    t.integer "match_id",           index: {name: "index_match_stats_on_match_id"}, foreign_key: {references: "matches", name: "fk_match_stats_match_id", on_update: :no_action, on_delete: :no_action}
+    t.integer "goals_h"
+    t.integer "goals_a"
+    t.integer "total_shots_h"
+    t.integer "total_shots_a"
+    t.integer "shots_on_targt_h"
+    t.integer "shots_on_targt_a"
+    t.integer "completed_passes_h"
+    t.integer "completed_passes_a"
+    t.integer "passing_accuracy_h"
+    t.integer "passing_accuracy_a"
+    t.integer "possession_h"
+    t.integer "corners_h"
+    t.integer "corners_a"
+    t.integer "offsides_h"
+    t.integer "offsides_a"
+    t.integer "fouls_conceded_h"
+    t.integer "fouls_conceded_a"
   end
 
   create_table "playlists", force: :cascade do |t|

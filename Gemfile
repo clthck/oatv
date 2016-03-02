@@ -44,8 +44,10 @@ gem 'yt', '~> 0.25.6'
 gem 'countries'
 
 gem 'schema_plus'
+gem 'seed_dump'
 
 gem 'js-routes'
+
 
 # gem 'protected_attributes'
 
@@ -70,7 +72,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
-  gem 'pry-rails'
+  # gem 'pry-rails'
   gem 'sextant'
 end
 
