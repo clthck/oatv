@@ -4,6 +4,7 @@
 //= require underscore
 //= require Materialize
 //= require datatables
+//= require js-routes
 //= require _R
 //= require_self
 

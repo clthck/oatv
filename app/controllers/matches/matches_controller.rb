@@ -24,6 +24,10 @@ class Matches::MatchesController < ApplicationController
 		end
 	end
 
+	# GET
+	def stats
+	end
+
 	private
 
 	def get_match_categories

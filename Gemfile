@@ -45,6 +45,8 @@ gem 'countries', require: 'countries/global'
 
 gem 'schema_plus'
 
+gem 'js-routes'
+
 # gem 'protected_attributes'
 
 # Use ActiveModel has_secure_password

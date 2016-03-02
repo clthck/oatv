@@ -23,14 +23,12 @@ class MatchesHelper
 		table = $table.DataTable
 			destroy: true
 			dom: "Bfrtilpr"
-			ajax: R.dataTableAjaxPath
+			ajax: Routes.matches__index_path(format: 'json')
 			iDisplayLength: 10
 			aLengthMenu: [ [5, 10, 25, 50, -1], [5, 10, 25, 50, "all"] ]
 			columns: [
 				{
-					data: null
-					orderable: false
-					width: '15px'
+					data: null, orderable: false, width: '15px'
 					render: (data, type, row, meta) ->
 						"<input type='checkbox' id='chk-cat-#{data.id}'><label for='chk-cat-#{data.id}'></label>"
 				}, {
@@ -40,6 +38,9 @@ class MatchesHelper
 					data: 'name'
 				}, {
 					data: 'date', type: 'date'
+				}, {
+					data: null, orderable: false
+					render: (data) -> "<a href='#{Routes.stats_matches__path(data.id)}'>Stats</a>"
 				}
 			]
 			select: {
