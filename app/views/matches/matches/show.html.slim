@@ -1,0 +1,15 @@
+- content_for :page_title, "Matches"
+
+.card-panel
+	table#matches-table.display.table.table-bordered.table-striped.table-hover
+		thead: tr
+			th
+			th Category
+			th Name
+			th Date
+		tbody
+
+javascript:
+	R.dataTableAjaxPath = "#{matches__index_path}";
+	R.matchCategories = #{raw @match_categories.to_json};
+	R.matchId = #{@match.id};

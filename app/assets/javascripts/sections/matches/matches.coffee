@@ -2,9 +2,9 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-R.pages['matches-index'] = do ($ = jQuery, window, document) ->
-	run = ->
-
+# Helper class
+class MatchesHelper
+	@initDataTable: ->
 		$table = $('#matches-table')
 		editor = new $.fn.dataTable.Editor
 			ajax: R.dataTableAjaxPath
@@ -39,7 +39,7 @@ R.pages['matches-index'] = do ($ = jQuery, window, document) ->
 				}, {
 					data: 'name'
 				}, {
-					data: 'date'
+					data: 'date', type: 'date'
 				}
 			]
 			select: {
@@ -51,7 +51,7 @@ R.pages['matches-index'] = do ($ = jQuery, window, document) ->
 				{ extend: 'edit', editor: editor },
 				{ extend: 'remove', editor: editor }
 			]
-			order: []
+			order: [[3, 'desc']]
 			rowId: 'id'
 
 		checkSelectedRows = ->
@@ -76,4 +76,17 @@ R.pages['matches-index'] = do ($ = jQuery, window, document) ->
 			else
 				pikaday.setDate $(dateField).val()
 
+# matches/matches#index
+R.pages['matches-index'] = do ($ = jQuery, window, document) ->
+	run = ->
+		MatchesHelper.initDataTable()
+	{ run: run }
+
+# matches/matches#show
+R.pages['matches-show'] = do ($ = jQuery, window, document) ->
+	run = ->
+		$('#matches-table').on 'init.dt', ->
+			table = $(this).DataTable()
+			table.row((idx, data) -> (data.id == R.matchId)).show().draw false
+		MatchesHelper.initDataTable()
 	{ run: run }

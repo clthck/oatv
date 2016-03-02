@@ -90,7 +90,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resources '', controller: 'matches', only: [:index] do
+    resources '', controller: 'matches', only: [:index, :show] do
       collection do
         post '/' => 'matches#datatables_editor_cud'
       end

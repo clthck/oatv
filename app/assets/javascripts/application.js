@@ -16,12 +16,14 @@
 //= require nanoscroller
 //= require Sortable
 //= require parsleyjs
-//= require datatables-buttons
-//= require datatables-select
-//= require datatables-editor/dataTables.editor
 //= require moment
 //= require pikaday
 //= require pikaday/plugins/pikaday.jquery
+//= require datatables-buttons
+//= require datatables-select
+//= require datatables-editor/dataTables.editor
+//= require datatables-plugins/api/row().show()
+
 //= require con-material-admin-dashboard/_con
 
 //= require _base
