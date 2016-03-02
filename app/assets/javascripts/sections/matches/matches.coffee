@@ -7,7 +7,7 @@ class MatchesHelper
 	@initDataTable: ->
 		$table = $('#matches-table')
 		editor = new $.fn.dataTable.Editor
-			ajax: R.dataTableAjaxPath
+			ajax: Routes.matches__index_path()
 			table: '#matches-table'
 			idSrc: 'id'
 			fields: [
