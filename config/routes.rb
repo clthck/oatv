@@ -86,14 +86,17 @@ Rails.application.routes.draw do
   namespace :matches do
     resources :categories, controller: 'match_categories', only: [:index] do
       collection do
-        post '/' => 'match_categories#datatables_editor_cud'
+        post :datatables_editor_cud
       end
     end
+  end
 
-    resources '', controller: 'matches', only: [:index] do
-      collection do
-        post '/' => 'matches#datatables_editor_cud'
-      end
+  resources :matches, only: [:index, :show, :update], controller: 'matches/matches' do
+    collection do
+      post :datatables_editor_cud
+    end
+    member do
+      get :stats
     end
   end
 end

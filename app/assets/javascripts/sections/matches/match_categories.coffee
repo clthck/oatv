@@ -7,7 +7,7 @@ R.pages['match_categories-index'] = do ($ = jQuery, window, document) ->
 
 		$table = $('#match-categories-table')
 		editor = new $.fn.dataTable.Editor
-			ajax: R.dataTableAjaxPath
+			ajax: Routes.datatables_editor_cud_matches_categories_path()
 			table: '#match-categories-table'
 			idSrc: 'id'
 			fields: [{
@@ -22,7 +22,7 @@ R.pages['match_categories-index'] = do ($ = jQuery, window, document) ->
 		table = $table.DataTable
 			destroy: true
 			dom: "Bfrtilpr"
-			ajax: R.dataTableAjaxPath
+			ajax: Routes.matches_categories_path(format: 'json')
 			iDisplayLength: 10
 			aLengthMenu: [ [5, 10, 25, 50, -1], [5, 10, 25, 50, "all"] ]
 			columns: [

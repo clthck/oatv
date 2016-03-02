@@ -41,9 +41,13 @@ gem 'breadcrumbs_on_rails'
 
 gem 'yt', '~> 0.25.6'
 
-gem 'countries', require: 'countries/global'
+gem 'countries'
 
 gem 'schema_plus'
+gem 'seed_dump'
+
+gem 'js-routes'
+
 
 # gem 'protected_attributes'
 

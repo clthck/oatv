@@ -4,6 +4,7 @@
 //= require underscore
 //= require Materialize
 //= require datatables
+//= require js-routes
 //= require _R
 //= require_self
 
@@ -18,6 +19,10 @@ window.R.pages = window.R.pages || {};
 
 		$(document).on('page:fetch', function () {
 			$turbolinksProgressBar.show();
+		});
+
+		$(document).on('page:before-unload', function () {
+			$turbolinksProgressBar.hide();
 		});
 
 		$(document).on('page:load', function () {

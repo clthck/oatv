@@ -28,14 +28,15 @@
     "nanoscroller": "^0.8.7",
     "Materialize": "materialize#^0.97.5",
     "Sortable": "^1.4.2",
-    "font-awesome": "fontawesome#^4.5.0",
-    "Ionicons": "ionicons#^2.0.1",
-    "weather-icons": "^2.0.10",
+    "font-awesome": "fontawesome#latest",
+    "Ionicons": "ionicons#latest",
+    "weather-icons": "latest",
     "datatables": "^1.10.11",
     "datatables-buttons": "^1.1.2",
     "datatables-select": "^1.1.2",
     "parsleyjs": "latest",
     "pikaday": "latest",
-    "moment": "latest"
+    "moment": "latest",
+    "datatables-plugins": "^1.10.11"
   }
 }

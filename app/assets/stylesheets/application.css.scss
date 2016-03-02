@@ -47,6 +47,10 @@
 	display: none;
 }
 
+.content-wrap .page-title li a {
+	padding-left: 0;
+}
+
 // stylesheets for controller views
 @import "./sections/dashboard/*";
 @import "./sections/matches/*";

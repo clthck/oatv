@@ -1,6 +1,8 @@
 class Matches::MatchCategoriesController < ApplicationController
+	before_action :add_parent_breadcrumb
 	# GET
 	def index
+		add_breadcrumb "Categories", :matches_categories_path
 		categories = MatchCategory.all.order(:id)
 		respond_to do |format|
 			format.html
@@ -15,5 +17,11 @@ class Matches::MatchCategoriesController < ApplicationController
 		respond_to do |format|
 			format.json { render json: json_data }
 		end
+	end
+
+	private
+
+	def add_parent_breadcrumb
+		add_breadcrumb "Matches", :matches_path
 	end
 end

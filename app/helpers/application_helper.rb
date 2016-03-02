@@ -27,8 +27,9 @@ module ApplicationHelper
 	end
 
 	# Get DOM element class to indicate whether current path equals the provided link path
-	def cp(path)
-		"active" if current_page? path
+	def cp(*paths)
+		paths.each { |path| return "active" if current_page? path }
+		nil
 	end
 
 end

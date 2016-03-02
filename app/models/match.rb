@@ -4,6 +4,7 @@ class Match < ActiveRecord::Base
 
   has_many :videos
   has_one :match_stat
+  accepts_nested_attributes_for :match_stat
 
   # Handles create, update and remove action of DataTables Editor
 	# and returns json hash
