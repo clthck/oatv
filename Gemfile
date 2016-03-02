@@ -41,7 +41,7 @@ gem 'breadcrumbs_on_rails'
 
 gem 'yt', '~> 0.25.6'
 
-gem 'countries', require: 'countries/global'
+gem 'countries'
 
 gem 'schema_plus'
 

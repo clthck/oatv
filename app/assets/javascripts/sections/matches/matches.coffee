@@ -40,7 +40,7 @@ class MatchesHelper
 					data: 'date', type: 'date'
 				}, {
 					data: null, orderable: false
-					render: (data) -> "<a href='#{Routes.stats_matches__path(data.id)}'>Stats</a>"
+					render: (data) -> "<a href='#{Routes.stats_matches__path(data.id)}'>STATS</a>"
 				}
 			]
 			select: {

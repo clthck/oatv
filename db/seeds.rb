@@ -17,6 +17,6 @@ end
 # end
 
 # Seeds country tables
-Country.all.each do |country|
-	Oatv::Country.find_or_create_by name: country.name
+ISO3166::Country.all.each do |country|
+	Country.find_or_create_by name: country.name
 end
