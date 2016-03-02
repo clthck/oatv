@@ -91,7 +91,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :matches, only: [:index, :show], controller: 'matches/matches' do
+  resources :matches, only: [:index, :show, :update], controller: 'matches/matches' do
     collection do
       post :datatables_editor_cud
     end

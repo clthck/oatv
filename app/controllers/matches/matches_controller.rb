@@ -30,6 +30,18 @@ class Matches::MatchesController < ApplicationController
 	def stats
 		add_breadcrumb "Matches", @match
 		add_breadcrumb "Stats", stats_match_path(@match)
+		@match.build_match_stat if @match.match_stat.nil?
+	end
+
+	# PATCH
+	def update
+		@match.update match_params
+		if @match.save
+			flash[:notice] = "Match stats updated successfully."
+		else
+			flash[:alert] = "Match stats could not be updated!"
+		end
+		redirect_to :back
 	end
 
 	private
@@ -38,5 +50,11 @@ class Matches::MatchesController < ApplicationController
 		@match_categories = MatchCategory.all.order(:name).collect do |cat|
 			{ value: cat.id, label: cat.name }
 		end
+	end
+
+	def match_params
+		params.require(:match).permit(match_stat_attributes: [
+			:id, :goals_h, :goals_a, :total_shots_h, :total_shots_a, :shots_on_target_h, :shots_on_target_a, :completed_passes_h, :completed_passes_a, :passing_accuracy_h, :passing_accuracy_a, :possession_h, :corners_h, :corners_a, :offsides_h, :offsides_a, :fouls_conceded_h, :fouls_conceded_a
+			])
 	end
 end

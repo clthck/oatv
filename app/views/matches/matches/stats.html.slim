@@ -1,11 +1,59 @@
 - content_for :page_title, "Match Stats"
 
+= flash_notice
+= flash_alert
+
 .row: .col.s8.offset-s2
 	.card.small
-		.card-image
-			= image_tag 'match_stats_banner'
-			.card-title.fluid-width.center-align.glow-effect
-				.fs-30.fw-400= @match.name
-				.fs-16.thin= l @match.date
-		.content
-			| content here
+		= form_for @match do |f|
+			= f.fields_for :match_stat do |ff|
+				.card-image
+					= image_tag 'match_stats_banner'
+					.card-title.fluid-width.center-align.glow-effect
+						.fs-30.fw-400= @match.name
+						.fs-16.thin= l @match.date
+				.content
+					table.table.table-condensed
+						thead: tr
+							th
+							th Home
+							th Away
+						tbody
+							tr
+								th Goals
+								td= ff.text_field :goals_h
+								td= ff.text_field :goals_a
+							tr
+								th Total Shots
+								td= ff.text_field :total_shots_h
+								td= ff.text_field :total_shots_a
+							tr
+								th Shots on Target
+								td= ff.text_field :shots_on_target_h
+								td= ff.text_field :shots_on_target_a
+							tr
+								th Completed Passes
+								td= ff.text_field :completed_passes_h
+								td= ff.text_field :completed_passes_a
+							tr
+								th Passing Accuracy
+								td= ff.text_field :passing_accuracy_h
+								td= ff.text_field :passing_accuracy_a
+							tr
+								th Possession
+								td= ff.text_field :possession_h
+								td= 100 - @match.match_stat.possession_h if @match.match_stat.possession_h?
+							tr
+								th Corners
+								td= ff.text_field :corners_h
+								td= ff.text_field :corners_a
+							tr
+								th Offsides
+								td= ff.text_field :offsides_h
+								td= ff.text_field :offsides_a
+							tr
+								th Fouls Conceded
+								td= ff.text_field :fouls_conceded_h
+								td= ff.text_field :fouls_conceded_a
+				.card-action
+					button.waves-effect.waves-light.btn.z-depth-0.z-depth-1-hover name="commit" type="submit" Update

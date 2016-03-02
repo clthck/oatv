@@ -6,8 +6,8 @@ class CreateMatchStats < ActiveRecord::Migration
       t.integer :goals_a
       t.integer :total_shots_h
       t.integer :total_shots_a
-      t.integer :shots_on_targt_h
-      t.integer :shots_on_targt_a
+      t.integer :shots_on_target_h
+      t.integer :shots_on_target_a
       t.integer :completed_passes_h
       t.integer :completed_passes_a
       t.integer :passing_accuracy_h
