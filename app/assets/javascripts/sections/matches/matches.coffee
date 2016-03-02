@@ -7,7 +7,7 @@ class MatchesHelper
 	@initDataTable: ->
 		$table = $('#matches-table')
 		editor = new $.fn.dataTable.Editor
-			ajax: Routes.matches__index_path()
+			ajax: Routes.datatables_editor_cud_matches_path()
 			table: '#matches-table'
 			idSrc: 'id'
 			fields: [
@@ -23,7 +23,7 @@ class MatchesHelper
 		table = $table.DataTable
 			destroy: true
 			dom: "Bfrtilpr"
-			ajax: Routes.matches__index_path(format: 'json')
+			ajax: Routes.matches_path(format: 'json')
 			iDisplayLength: 10
 			aLengthMenu: [ [5, 10, 25, 50, -1], [5, 10, 25, 50, "all"] ]
 			columns: [
@@ -40,7 +40,7 @@ class MatchesHelper
 					data: 'date', type: 'date'
 				}, {
 					data: null, orderable: false
-					render: (data) -> "<a href='#{Routes.stats_matches__path(data.id)}'>STATS</a>"
+					render: (data) -> "<a href='#{Routes.stats_match_path(data.id)}'>STATS</a>"
 				}
 			]
 			select: {

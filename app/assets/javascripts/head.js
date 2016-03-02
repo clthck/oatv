@@ -21,6 +21,10 @@ window.R.pages = window.R.pages || {};
 			$turbolinksProgressBar.show();
 		});
 
+		$(document).on('page:before-unload', function () {
+			$turbolinksProgressBar.hide();
+		});
+
 		$(document).on('page:load', function () {
 			$turbolinksProgressBar = $(document.getElementById('turbolinks-progress'));
 		});

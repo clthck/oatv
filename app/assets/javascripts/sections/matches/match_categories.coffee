@@ -7,7 +7,7 @@ R.pages['match_categories-index'] = do ($ = jQuery, window, document) ->
 
 		$table = $('#match-categories-table')
 		editor = new $.fn.dataTable.Editor
-			ajax: Routes.matches_categories_path()
+			ajax: Routes.datatables_editor_cud_matches_categories_path()
 			table: '#match-categories-table'
 			idSrc: 'id'
 			fields: [{

@@ -1,7 +1,9 @@
 JsRoutes.setup do |config|
 	config.include = [
 		/^matches_categories$/,
-		/^matches__index$/,
-		/^stats_matches_$/,
+		/^datatables_editor_cud_matches_categories$/,
+		/^matches$/,
+		/^datatables_editor_cud_matches$/,
+		/^stats_match$/,
 	]
 end

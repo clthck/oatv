@@ -2,6 +2,7 @@ class Matches::MatchesController < ApplicationController
 	before_action :get_match_categories, only: [:index, :show]
 	# GET
 	def index
+		add_breadcrumb "Matches", :matches_path
 		matches = current_user.club.matches.order(date: :desc)
 		respond_to do |format|
 			format.html
@@ -13,6 +14,7 @@ class Matches::MatchesController < ApplicationController
 
 	# GET
 	def show
+		add_breadcrumb "Matches", :matches_path
 	end
 
 	# POST
@@ -26,6 +28,8 @@ class Matches::MatchesController < ApplicationController
 
 	# GET
 	def stats
+		add_breadcrumb "Matches", @match
+		add_breadcrumb "Stats", stats_match_path(@match)
 	end
 
 	private
