@@ -94,6 +94,8 @@ Rails.application.routes.draw do
       collection do
         post '/' => 'matches#datatables_editor_cud'
       end
+
+      resources :stats, controller: 'match_stats'
     end
   end
 end
