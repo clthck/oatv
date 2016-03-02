@@ -51,6 +51,12 @@
 	padding-left: 0;
 }
 
+.navbar-title {
+	left: 160px;
+	position: absolute;
+	top: 10px;
+}
+
 // stylesheets for controller views
 @import "./sections/dashboard/*";
 @import "./sections/matches/*";
