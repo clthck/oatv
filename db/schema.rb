@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160229120030) do
+ActiveRecord::Schema.define(version: 20160303094827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,8 +74,8 @@ ActiveRecord::Schema.define(version: 20160229120030) do
 
   create_table "videos", force: :cascade do |t|
     t.integer  "match_id",      index: {name: "index_videos_on_match_id"}, foreign_key: {references: "matches", name: "fk_videos_match_id", on_update: :no_action, on_delete: :no_action}
-    t.string   "url"
-    t.string   "ytv_id"
+    t.string   "url",           index: {name: "index_videos_on_url", unique: true}
+    t.string   "ytv_id",        index: {name: "index_videos_on_ytv_id", unique: true}
     t.string   "title"
     t.integer  "duration"
     t.string   "thumbnail_url"
@@ -115,8 +115,8 @@ ActiveRecord::Schema.define(version: 20160229120030) do
     t.integer "goals_a"
     t.integer "total_shots_h"
     t.integer "total_shots_a"
-    t.integer "shots_on_targt_h"
-    t.integer "shots_on_targt_a"
+    t.integer "shots_on_target_h"
+    t.integer "shots_on_target_a"
     t.integer "completed_passes_h"
     t.integer "completed_passes_a"
     t.integer "passing_accuracy_h"
