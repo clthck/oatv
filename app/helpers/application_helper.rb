@@ -32,4 +32,14 @@ module ApplicationHelper
 		nil
 	end
 
+	# Similar to `cp` method
+	# Check current page against given array of {controller_name#action_name} patterns
+	def cp_against_ca(*ca_patterns)
+		ca_patterns.each do |pattern|
+			ca = pattern.split '#'
+			return "active" if ca[0] == controller_name and ca[1] == action_name
+		end
+		nil
+	end
+
 end
