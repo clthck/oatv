@@ -1187,12 +1187,18 @@ div.editor-datetime {
   padding-bottom: 1px;
 }
 
+// stylesheet for DataTable only
 table.dataTable {
   td,
   th {
     border-radius: 0;
   }
+
+  .dataTables_empty {
+    text-align: center;
+  }
 }
+
 table.dataTable.display tbody tr.selected {
   &,
   &.odd,
