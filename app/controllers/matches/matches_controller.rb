@@ -28,7 +28,7 @@ class Matches::MatchesController < ApplicationController
 
 	# GET
 	def stats
-		add_breadcrumb "Matches", @match
+		add_breadcrumb "Match", @match
 		add_breadcrumb "Stats", stats_match_path(@match)
 		@match.build_match_stat if @match.match_stat.nil?
 	end

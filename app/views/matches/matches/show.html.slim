@@ -1,15 +1,4 @@
-- content_for :page_title, "Matches"
-
-.card-panel
-	table#matches-table.display.table.table-bordered.table-striped.table-hover
-		thead: tr
-			th
-			th Category
-			th Name
-			th Date
-			th
-		tbody
+= render file: 'matches/matches/index'
 
 javascript:
-	R.matchCategories = #{raw @match_categories.to_json};
 	R.matchId = #{@match.id};
