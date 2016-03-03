@@ -108,7 +108,7 @@ div.DTE_Field {
     background-color: white;
     box-sizing: border-box;
     margin-bottom: 0;
-    transition: background-color ease-in-out .15s;
+    transition: all .3s;
   }
 
   input[type="color"],
@@ -1181,6 +1181,10 @@ div.editor-datetime {
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAALCAMAAABf9c24AAAAFVBMVEX///99fX1+fn57e3t6enoAAAAAAAC73bqPAAAABnRSTlMAYmJkZt92bnysAAAAMElEQVR4AWOgDmBiRQIsmPKMrGxQgJDFlEfIYpoPk8Utz8qM232MYFfhkQfKUg8AANefAQxecJ58AAAAAElFTkSuQmCC");
     height: 20px;
   }
+}
+
+.DTE_Field_InputControl {
+  padding-bottom: 1px;
 }
 
 table.dataTable {
