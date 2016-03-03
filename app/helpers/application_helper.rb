@@ -42,4 +42,23 @@ module ApplicationHelper
 		nil
 	end
 
+	def file_field_tag_v2(title, name, options = {})
+		<<-html
+			<div class="input-field file-field">
+				<div class="btn">
+					<span>#{title}</span>
+					#{if options[:form_builder]
+						options[:form_builder].file_field name
+					else
+						file_field_tag name
+					end}
+				</div>
+				<div class="file-path-wrapper">
+					<input class="file-path validate" type="text" readonly>
+				</div>
+			</div>
+		html
+		.html_safe
+	end
+
 end
