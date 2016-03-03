@@ -5,5 +5,6 @@ JsRoutes.setup do |config|
 		/^matches$/,
 		/^datatables_editor_cud_matches$/,
 		/^stats_match$/,
+		/^match_videos$/,
 	]
 end

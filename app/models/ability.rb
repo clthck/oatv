@@ -44,6 +44,7 @@ class Ability
       can :add, :player
       can :manage, MatchCategory
       can :manage, Match
+      can :manage, Video
     else
     end
   end

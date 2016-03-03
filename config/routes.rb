@@ -98,5 +98,8 @@ Rails.application.routes.draw do
     member do
       get :stats
     end
+
+    resources :videos do
+    end
   end
 end
