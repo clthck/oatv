@@ -5,12 +5,14 @@
 
 .row: .col.s8.offset-s2
 	.card.small
-		= form_for @video, url: match_videos_path(@current_match), html: { enctype: 'multipart/form-data' } do |f|
+		= form_for @video, url: match_videos_path(@current_match),
+			remote: true,
+			html: { enctype: 'multipart/form-data' } do |f|
 			.card-image
-				= image_tag 'match_stats_banner'
-				.card-title.fluid-width.center-align.glow-effect
+				= image_tag 'match_videos_banner'
+				.card-title.fluid-width.center-align style="text-shadow: 0 2px 6px #424242, 0 2px 6px #424242;"
 					.fs-30.fw-400= @current_match.name
-					.fs-16.thin= l @current_match.date
+					.fs-16.light= l @current_match.date
 			.content
 				table.table.table-condensed
 					tbody

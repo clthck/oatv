@@ -1,10 +1,12 @@
 //= require jquery
 //= require jquery_ujs
+//= require jquery.remotipart
 //= require turbolinks
 //= require underscore
 //= require Materialize
 //= require datatables
 //= require js-routes
+//= require animateCSS
 //= require _R
 //= require_self
 

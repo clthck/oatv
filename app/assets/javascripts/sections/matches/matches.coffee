@@ -115,8 +115,12 @@ R.pages['matches-index'] = do ($ = jQuery, window, document) ->
 # matches/matches#show
 R.pages['matches-show'] = do ($ = jQuery, window, document) ->
 	run = ->
+	
 		$('#matches-table').on 'init.dt', ->
 			table = $(this).DataTable()
-			table.row((idx, data) -> (data.id == R.matchId)).show().draw false
+			$(table.row((idx, data) -> (data.id == R.matchId))
+				.show().draw(false).node()
+			).addClass 'highlight'
+
 		MatchesHelper.initDataTable()
 	{ run: run }

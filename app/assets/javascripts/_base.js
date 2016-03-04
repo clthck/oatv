@@ -25,17 +25,37 @@
 	$.fn.extend({
 		materialBlock: function (options) {
 			this.each(function () {
-				$(this).block($.extend( {}, {
-					message: '<div class="preloader-wrapper small active"><div class="spinner-layer spinner-green-only"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div></div>',
+				var $this = $(this).addClass('transition-all-short');
+
+				$this.block($.extend( {}, {
+					message: '<div class="preloader-wrapper active"><div class="spinner-layer"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div></div>',
 					overlayCSS: { opacity: 0.1 },
 					css: {
 						border: 'none',
 						backgroundColor: 'transparent',
 					}
 				}, options ));
+
+				$this.addClass('blur-effect').find('.blockUI').insertAfter($this);
 			});
 			return this;
-		}
+		},
+
+		materialUnblock: function () {
+			this.each(function () {
+				var $this = $(this),
+					$blockUiEl, tmp;
+
+				$blockUiEl = $this.next('.blockUI');
+				while ($blockUiEl.length > 0) {
+					tmp = $blockUiEl;
+					$blockUiEl = $blockUiEl.next('.blockUI');
+					tmp.prependTo($this);
+				}
+				$this.unblock().removeClass('blur-effect');
+			});
+			return this;
+		},
 	});
 
 	/**

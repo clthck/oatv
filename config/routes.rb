@@ -100,6 +100,7 @@ Rails.application.routes.draw do
     end
 
     resources :videos do
+      get :analyze_data, on: :member
     end
   end
 end

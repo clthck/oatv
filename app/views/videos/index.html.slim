@@ -1,1 +1,16 @@
 - content_for :page_title, "Match Videos"
+
+.card
+	.title
+		h4= @current_match.name
+		.clear
+			| (#{l @current_match.date})
+	.card-content
+		- unless @videos.empty?
+			.table-responsive
+				table.table.table-striped
+					tbody= render @videos
+		- else
+			p There are no videos for this match.
+	.card-action
+		= link_to 'Add New', new_match_video_path, class: "waves-effect waves-light btn z-depth-0 z-depth-1-hover"

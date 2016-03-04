@@ -37,7 +37,10 @@ module Oatv
     }
 
     config.action_controller.action_on_unpermitted_parameters = :raise
+    config.action_view.embed_authenticity_token_in_remote_forms = true
 
-    Yt.configuration.api_key = ENV['OATV_YOUTUBE_API_KEY']
+    Yt.configure do |config|
+      config.api_key = ENV['OATV_YOUTUBE_API_KEY']
+    end
   end
 end

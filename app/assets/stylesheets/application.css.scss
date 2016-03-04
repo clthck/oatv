@@ -17,6 +17,7 @@
 //= require weather-icons
 //= require nanoscroller
 //= require pikaday
+//= require animate.css/animate
 //= require_self
 
 @import url("//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900");
@@ -39,11 +40,11 @@
 }
 
 .progress {
-	background-color: $primary-color;
 	margin: 0;
 }
 
 #turbolinks-progress {
+	background-color: $primary-color;
 	display: none;
 }
 

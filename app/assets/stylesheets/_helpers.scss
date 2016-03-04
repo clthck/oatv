@@ -37,3 +37,20 @@
 .glow-effect {
 	text-shadow: 0 0 1px #FFF, 0 0 1px #fff;
 }
+
+.clear {
+	clear: both;
+}
+
+.blur-effect {
+	filter: blur(15px);
+	opacity: 0.95;
+}
+
+.transition-all {
+	transition: all 1s;
+}
+
+.transition-all-short {
+	transition: all 0.3s;
+}
