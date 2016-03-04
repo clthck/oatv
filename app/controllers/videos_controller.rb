@@ -60,6 +60,13 @@ class VideosController < ApplicationController
 		end
 	end
 
+	# DELETE
+	def destroy
+		@video.destroy
+		flash[:notice] = "Video has been deleted."
+		redirect_to match_videos_path
+	end
+
 	private
 
 	def add_parent_breadcrumb
