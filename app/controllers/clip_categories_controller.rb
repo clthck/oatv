@@ -1,7 +1,7 @@
 class ClipCategoriesController < ApplicationController
 	# GET
 	def index
-		add_breadcrumb "Categories", :clip_categories_path
+		add_breadcrumb "Clip Categories", :clip_categories_path
 		categories = ClipCategory.all.order(:id)
 		respond_to do |format|
 			format.html

@@ -101,6 +101,8 @@ Rails.application.routes.draw do
 
     resources :videos, except: [:edit, :update, :show] do
       get :analyze_data, on: :member
+
+      resources :clips
     end
   end
 

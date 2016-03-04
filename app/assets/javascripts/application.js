@@ -31,3 +31,4 @@
 //= require_tree ./sections/matches/
 //= require_tree ./sections/videos/
 //= require_tree ./sections/clip_categories/
+//= require_tree ./sections/clips/
