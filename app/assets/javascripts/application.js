@@ -30,3 +30,4 @@
 //= require_tree ./sections/dashboard/
 //= require_tree ./sections/matches/
 //= require_tree ./sections/videos/
+//= require_tree ./sections/clip_categories/

@@ -21,7 +21,7 @@ li
 		li class="#{cp users_add_player_path}"
 			= link_to 'Player', users_add_player_path, class: "waves-effect waves-blue"
 
-li.label Matches
+li.label Matches & Videos
 
 li class="#{cp matches_categories_path}"
 	= link_to matches_categories_path, class: "waves-effect waves-blue"
@@ -31,4 +31,11 @@ li class="#{cp matches_categories_path}"
 li class="#{cp(matches_path) || cp_against_ca('matches#show', 'matches#stats', 'videos#index')}"
 	= link_to matches_path, class: "waves-effect waves-blue"
 		i.fa.fa-cog
-		| Matches
+		| Matches & Videos
+
+li.label Video Clips
+
+li class="#{cp clip_categories_path}"
+	= link_to clip_categories_path, class: "waves-effect waves-blue"
+		i.fa.fa-cog
+		| Clip Categories

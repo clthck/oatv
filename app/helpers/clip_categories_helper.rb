@@ -1,0 +1,2 @@
+module ClipCategoriesHelper
+end
