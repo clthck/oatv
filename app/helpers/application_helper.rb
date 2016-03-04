@@ -32,4 +32,35 @@ module ApplicationHelper
 		nil
 	end
 
+	# Similar to `cp` method
+	# Check current page against given array of {controller_name#action_name} patterns
+	def cp_against_ca(*ca_patterns)
+		ca_patterns.each do |pattern|
+			ca = pattern.split '#'
+			return "active" if ca[0] == controller_name and ca[1] == action_name
+		end
+		nil
+	end
+
+	# Custom file input tag with wrapper to suit materialize UI
+	def file_field_tag_v2(title, name, options = {})
+		<<-html
+			<div class="input-field file-field">
+				<div class="btn">
+					<span>#{title}</span>
+					#{if options[:form_builder] then options[:form_builder].file_field(name) else file_field_tag(name) end}
+				</div>
+				<div class="file-path-wrapper">
+					<input class="file-path" type="text" readonly>
+				</div>
+			</div>
+		html
+		.html_safe
+	end
+
+	# Get HH:MM:SS format from seconds
+	def hms(seconds)
+		Time.at(seconds).utc.strftime "%H:%M:%S"
+	end
+
 end

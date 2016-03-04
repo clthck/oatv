@@ -1,0 +1,28 @@
+- content_for :page_title, "Add New Match Video"
+
+= flash_notice
+= flash_alert
+
+.row: .col.s8.offset-s2
+	.card.small
+		= form_for @video, url: match_videos_path(@current_match),
+			remote: true,
+			html: { enctype: 'multipart/form-data' } do |f|
+			.card-image
+				= image_tag 'match_videos_banner'
+				.card-title.fluid-width.center-align style="text-shadow: 0 2px 6px #424242, 0 2px 6px #424242;"
+					.fs-30.fw-400= @current_match.name
+					.fs-16.light= l @current_match.date
+			.content
+				table.table.table-condensed
+					tbody
+						tr
+							th URL
+							td= f.text_field :url
+						tr
+							th
+								| Analysis Data
+								.light.fs-12 Supported types: CSV
+							td= file_field_tag_v2 'File', :analysis_data
+			.card-action
+				button.waves-effect.waves-light.btn.z-depth-0.z-depth-1-hover name="commit" type="submit" Add

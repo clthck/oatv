@@ -108,7 +108,7 @@ div.DTE_Field {
     background-color: white;
     box-sizing: border-box;
     margin-bottom: 0;
-    transition: background-color ease-in-out .15s;
+    transition: all .3s;
   }
 
   input[type="color"],
@@ -1183,12 +1183,22 @@ div.editor-datetime {
   }
 }
 
+.DTE_Field_InputControl {
+  padding-bottom: 1px;
+}
+
+// stylesheet for DataTable only
 table.dataTable {
   td,
   th {
     border-radius: 0;
   }
+
+  .dataTables_empty {
+    text-align: center;
+  }
 }
+
 table.dataTable.display tbody tr.selected {
   &,
   &.odd,

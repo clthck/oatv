@@ -55,12 +55,7 @@
 							= pf.text_area :introduction, class: "materialize-textarea"
 							= pf.label :introduction
 
-						.input-field.file-field
-							.btn
-								span Avatar
-								= pf.file_field :avatar
-							.file-path-wrapper
-								input.file-path.validate(type="text" readonly)
+						= file_field_tag_v2 'Avatar', :avatar, form_builder: pf
 
 		.card-action
 			/ Current password

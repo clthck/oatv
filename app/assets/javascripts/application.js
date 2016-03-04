@@ -29,3 +29,4 @@
 //= require _base
 //= require_tree ./sections/dashboard/
 //= require_tree ./sections/matches/
+//= require_tree ./sections/videos/

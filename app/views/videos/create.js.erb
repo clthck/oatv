@@ -1,0 +1,60 @@
+<% if @video.persisted? %>
+
+	<% if @uploaded_file.nil? %>
+		window.location.href = '<%= match_videos_path %>';
+	<% else %>
+		$(function() {
+			<%
+			progress_bar_html = raw <<-html
+				<div class="row">
+					<div class="col s8 offset-s2 mt-50">
+						<div class="card-panel deep-purple lighten-5">
+							<div class="progress extra fs-20">
+								<div class="white-text transition-all" style="width: 0;">0%</div>
+							</div>
+							<h3 class="center-align deep-purple-text text-uppercase mt-30">Analyzing Attachment...</h3>
+						</div>
+					</div>
+				</div>
+			html
+			.gsub(/\n|\t/, '')
+			%>
+
+			var $mainContentEl = $('#main-content'),
+				$progressBarEl, $progressEl,
+				SSE = new EventSource("<%= analyze_data_match_video_path @current_match, @video %>");
+
+			$mainContentEl.html('<%= progress_bar_html %>').animateCSS('fadeIn');
+			$progressBarEl = $mainContentEl.find('.progress');
+			$progressEl = $('> div:first-child', $progressBarEl);
+
+			SSE.addEventListener('message', function (e) {
+				if (e.lastEventId == 'IN_PROGRESS') {
+					$progressEl.css('width', e.data + '%').text(e.data + '%');
+				} else {
+					SSE.close();
+					if (e.lastEventId == 'FINISHED') {
+						$progressBarEl.next('h3').text('Done');
+						$progressEl.css('width', '100%');
+						setTimeout(function () {
+							window.location.href = '<%= match_videos_path %>';
+						}, 1500);
+					}
+				}
+			});
+
+			SSE.addEventListener('error', function (e) {
+				console.log('SSE error: ' + e);
+				SSE.close();
+			});
+		});
+	<% end %>
+
+<% else %>
+
+	<% if alert %>
+		Materialize.toast("<%= alert %>", 4000);
+		<% flash.delete :alert %>
+	<% end %>
+
+<% end %>

@@ -11,9 +11,14 @@
 /log/*
 !/log/.keep
 /tmp
+!/tmp/upload/.keep
+
 /*.sublime-project
 /*.sublime-workspace
+
+# Ignore bower components
 /vendor/assets/bower_components/*
+
 /.byebug_history
 .DS_Store
 /public/upload/*

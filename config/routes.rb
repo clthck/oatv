@@ -98,5 +98,9 @@ Rails.application.routes.draw do
     member do
       get :stats
     end
+
+    resources :videos do
+      get :analyze_data, on: :member
+    end
   end
 end

@@ -1,0 +1,5 @@
+tr
+	td= link_to image_tag(video.thumbnail_url), video.url, target: '_new'
+	td.fs-16= video.title
+	td= hms video.duration
+	td= link_to 'Delete', match_video_path(video.match_id, video.id), method: :delete, data: { confirm: "This will delete all associated clip records as well. Are you sure?" }, class: "btn red waves-effect waves-dark"

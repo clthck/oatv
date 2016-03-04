@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'puma'
+
 gem 'devise'
 gem 'cancancan', '~> 1.10'
 
@@ -48,6 +50,9 @@ gem 'seed_dump'
 
 gem 'js-routes'
 
+gem 'remotipart'
+
+gem 'activerecord-import'
 
 # gem 'protected_attributes'
 
