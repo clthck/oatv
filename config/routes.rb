@@ -99,8 +99,12 @@ Rails.application.routes.draw do
       get :stats
     end
 
-    resources :videos do
+    resources :videos, except: [:edit, :update, :show] do
       get :analyze_data, on: :member
     end
+  end
+
+  resources :clip_categories do
+    post :datatables_editor_cud, on: :collection
   end
 end

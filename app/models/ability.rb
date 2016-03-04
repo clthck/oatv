@@ -45,6 +45,7 @@ class Ability
       can :manage, MatchCategory
       can :manage, Match
       can :manage, Video
+      can :manage, ClipCategory
     else
     end
   end
