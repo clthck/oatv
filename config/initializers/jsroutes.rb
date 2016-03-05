@@ -8,5 +8,7 @@ JsRoutes.setup do |config|
 		/^match_videos$/,
 		/^clip_categories$/,
 		/^datatables_editor_cud_clip_categories$/,
+		/^datatables_editor_cud_match_video_clips$/,
+		/^match_video_clips$/,
 	]
 end

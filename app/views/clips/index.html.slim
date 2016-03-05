@@ -1,1 +1,16 @@
 - content_for :page_title, "Match Video Clips"
+
+.card-panel
+	table#clips-table.display.table.table-bordered.table-striped.table-hover
+		thead: tr
+			th
+			th Category
+			th Name
+			th Start
+			th End
+		tbody
+
+javascript:
+	R.clipCategories = #{raw @clip_categories.to_json};
+	R.matchId = #{params[:match_id]};
+	R.videoId = #{params[:video_id]};

@@ -28,8 +28,8 @@ class ClipDataAnalysis
 			if m = line[0].match(/CATEGORY: (.+)/i)
 				current_category = ClipCategory.where('lower(name) = ?', m[1].downcase).first_or_create
 			else
-				start = to_seconds line[2]
-				stop = to_seconds line[3]
+				start = Moment.to_seconds(line[2], false)
+				stop = Moment.to_seconds(line[3], false)
 				next if start > @video.duration || stop == 0
 				clips << Clip.new(video: @video, category: current_category, name: line[0], start: start, end: stop)
 			end
@@ -39,11 +39,4 @@ class ClipDataAnalysis
 		Clip.import clips
 	end
 
-	private
-
-	# Convert [%H:]%M:%S,mmm format to number of seconds
-	def to_seconds(time)
-		m = time.match /(?:(\d+):)?(\d+):(\d+),\d{3}/
-		if m then m[1].to_i * 3600 + m[2].to_i * 60 + m[3].to_i else 0 end
-	end
 end

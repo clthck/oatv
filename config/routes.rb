@@ -92,17 +92,15 @@ Rails.application.routes.draw do
   end
 
   resources :matches, only: [:index, :show, :update], controller: 'matches/matches' do
-    collection do
-      post :datatables_editor_cud
-    end
-    member do
-      get :stats
-    end
+    post :datatables_editor_cud, on: :collection
+    get :stats, on: :member
 
     resources :videos, except: [:edit, :update, :show] do
       get :analyze_data, on: :member
 
-      resources :clips
+      resources :clips, only: [:index] do
+        post :datatables_editor_cud, on: :collection
+      end
     end
   end
 

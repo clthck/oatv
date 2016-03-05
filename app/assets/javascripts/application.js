@@ -22,6 +22,8 @@
 //= require datatables-buttons
 //= require datatables-select
 //= require datatables-editor/dataTables.editor
+//= require jquery-mask-plugin
+//= require datatables-editor/plugins/editor.mask
 //= require datatables-plugins/api/row().show()
 
 //= require con-material-admin-dashboard/_con
