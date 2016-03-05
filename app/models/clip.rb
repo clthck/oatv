@@ -18,6 +18,8 @@ class Clip < ActiveRecord::Base
 			case dte_action
 			when 'create'
 				attributes = data[0][1]
+				attributes[:start] = Moment.to_seconds(attributes[:start])
+				attributes[:end] = Moment.to_seconds(attributes[:end])
 				clip = self.new clip_params(attributes)
 				clip.video = video
 				clip.save!
