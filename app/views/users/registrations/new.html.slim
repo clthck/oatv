@@ -40,7 +40,7 @@
 			/ Club nationality
 			.input-field
 				i.fa.fa-flag.prefix
-				= ff.collection_select :country_id, Oatv::Country.all.order(:name), :id, :name, prompt: 'Please select your club nationality'
+				= ff.collection_select :country_id, Country.all.order(:name), :id, :name, prompt: 'Please select your club nationality'
 				= ff.label :country_id, t('Club Nationality')
 
 		button.waves-effect.waves-light.btn-large.z-depth-0.z-depth-1-hover name="commit" type="submit" Sign Up
