@@ -34,3 +34,4 @@
 //= require_tree ./sections/videos/
 //= require_tree ./sections/clip_categories/
 //= require_tree ./sections/clips/
+//= require_tree ./sections/playlists/

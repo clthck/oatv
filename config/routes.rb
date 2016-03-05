@@ -104,7 +104,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :clip_categories do
+  resources :clip_categories, only: [:index] do
+    post :datatables_editor_cud, on: :collection
+  end
+
+  resources :playlists, only: [:index] do
     post :datatables_editor_cud, on: :collection
   end
 end

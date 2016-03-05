@@ -47,6 +47,7 @@ class Ability
       can :manage, Video
       can :manage, ClipCategory
       can :manage, Clip
+      can :manage, Playlist
     else
     end
   end
