@@ -33,6 +33,9 @@ class Clip < ActiveRecord::Base
 			when 'remove'
 				ids = data.collect { |e| e[0] }
 				self.where(id: ids).destroy_all
+			when 'add_to_playlist'
+				data_hash = Hash[data]
+				Playlist.find(data_hash['playlist_id']).clips += Clip.find(data_hash['clip_ids'].split(','))
 			end
 			json_data = { data: [clip.as_json(include: :category)] }
 		rescue StandardError => e

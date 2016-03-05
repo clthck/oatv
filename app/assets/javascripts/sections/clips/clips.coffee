@@ -76,18 +76,18 @@ class ClipsHelper
 				selector: 'td:first-child [type="checkbox"]'
 			}
 			buttons: [
-				{ extend: 'create', editor: editor },
-				{ extend: 'edit', editor: editor },
+				{ extend: 'create', editor: editor }
+				{ extend: 'edit', editor: editor }
 				{ extend: 'remove', editor: editor }
+				{ extend: 'add_to_playlist', editor: editor }
 			]
 			order: [[3, 'asc']]
 			rowId: 'id'
 
 		checkSelectedRows = ->
-			if table.rows({ selected: true }).indexes().length == 1
-				table.buttons('.buttons-edit').enable()
-			else
-				table.buttons('.buttons-edit').disable()
+			selectedRows = table.rows({ selected: true }).count()
+			table.buttons('.buttons-edit').enable(selectedRows == 1)
+			table.buttons('.buttons-add-to-playlist').enable(selectedRows > 0)
 
 		table.on 'select', checkSelectedRows
 		table.on 'deselect', checkSelectedRows
@@ -102,5 +102,24 @@ class ClipsHelper
 # clips#index
 R.pages['clips-index'] = do ($ = jQuery, window, document) ->
 	run = ->
+
+		$playlistsPopup = $('#playlists-popup')
+
+		$.fn.dataTable.ext.buttons.add_to_playlist = {
+			text: 'Add to Playlist'
+			action: (e, dt, node, config) ->
+				selectedRows = dt.rows({selected: true})
+				$('[type=submit]', $playlistsPopup).text "Add #{selectedRows.count()} clips to playlist"
+				$('#data_clip_ids').val _.map(selectedRows.data(), (o) -> o.id).join()
+				$playlistsPopup.openModal {
+					dismissible: true
+				}
+			enabled: no
+			className: 'buttons-add-to-playlist blue'
+		}
+
+		$('form', $playlistsPopup).on 'ajax:success', ->
+			$playlistsPopup.closeModal()
+
 		ClipsHelper.initDataTable()
 	{ run: run }

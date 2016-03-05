@@ -8,6 +8,7 @@ class ClipsController < ApplicationController
 	def index
 		add_breadcrumb "Clips", match_video_clips_path
 		clips = current_video.clips.order(:start)
+		@playlists = current_user.club.playlists.order(:name)
 		respond_to do |format|
 			format.html
 			format.json { render json: { data: clips.as_json(include: :category) } }

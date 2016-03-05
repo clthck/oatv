@@ -10,6 +10,16 @@
 			th End
 		tbody
 
+#playlists-popup.modal.mw-500
+	= form_tag datatables_editor_cud_match_video_clips_path, remote: true, method: :post do
+		= hidden_field_tag :action, 'add_to_playlist'
+		= hidden_field_tag "data[clip_ids]", ''
+		.modal-content
+			= label_tag :playlist_id
+			= select_tag "data[playlist_id]", options_from_collection_for_select(@playlists, :id, :name)
+		.modal-footer.pr-24.mb-12
+			= button_tag 'Add clips to playlist', class: "btn waves-effect waves-light"
+
 javascript:
 	R.clipCategories = #{raw @clip_categories.to_json};
 	R.matchId = #{params[:match_id]};
