@@ -12,6 +12,7 @@ class Clip < ActiveRecord::Base
 
   # Handles create, update and remove action of DataTables Editor
 	# and returns json hash
+	# for video
 	def self.datatables_editor_cud(dte_action, data, video)
 		json_data = {}
 		begin
@@ -47,6 +48,23 @@ class Clip < ActiveRecord::Base
 				}]
 			}
 		end
+	end
+
+	# Handles create, update and remove action of DataTables Editor
+	# and returns json hash
+	# for playlist
+	def self.datatables_editor_cud_on_playlist(dte_action, data, playlist)
+		json_data = {}
+		begin
+			case dte_action
+			when 'remove'
+				ids = data.collect { |e| e[0] }
+				playlist.clips -= self.where(id: ids)
+			end
+		rescue StandardError => e
+			json_data = { error: e }
+		end
+		json_data
 	end
 
 	private

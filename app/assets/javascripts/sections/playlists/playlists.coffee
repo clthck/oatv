@@ -34,6 +34,9 @@ R.pages['playlists-index'] = do ($ = jQuery, window, document) ->
 						"<input type='checkbox' id='chk-cat-#{data.id}'><label for='chk-cat-#{data.id}'></label>"
 				}, {
 					data: 'name'
+				}, {
+					data: null
+					render: (data) -> "<a href='#{Routes.playlist_clips_path(data.id)}'>View Clips</a> (#{data.clips_count})"
 				}
 			]
 			select: {

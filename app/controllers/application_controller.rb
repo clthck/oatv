@@ -13,6 +13,8 @@ class ApplicationController < ActionController::Base
 
   Parameters = ActionController::Parameters
 
+  include CurrentVariables
+
   private
 
   # Overwriting the sign_out redirect path method

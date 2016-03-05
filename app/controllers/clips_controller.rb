@@ -1,7 +1,5 @@
 class ClipsController < ApplicationController
-	include CurrentVariables
-
-	before_action :add_parent_breadcrumb
+	before_action :add_parent_breadcrumb, only: [:index]
 	before_action :get_clip_categories, only: [:index]
 
 	# GET
@@ -17,8 +15,30 @@ class ClipsController < ApplicationController
 
 	# POST
 	# Handles create, update and remove action of DataTables Editor
+	# for video
 	def datatables_editor_cud
 		json_data = Clip.datatables_editor_cud(request.POST[:action], params[:data].to_a, current_video)
+		respond_to do |format|
+			format.json { render json: json_data }
+		end
+	end
+
+	# GET
+	def index_on_playlist
+		add_breadcrumb "Playlists", playlists_path
+		add_breadcrumb "Clips", playlist_clips_path
+		@clips = current_playlist.clips.order(:id)
+		respond_to do |format|
+			format.html
+			format.json
+		end
+	end
+
+	# POST
+	# Handles create, update and remove action of DataTables Editor
+	# for playlist
+	def datatables_editor_cud_on_playlist
+		json_data = Clip.datatables_editor_cud_on_playlist(request.POST[:action], params[:data].to_a, current_playlist)
 		respond_to do |format|
 			format.json { render json: json_data }
 		end

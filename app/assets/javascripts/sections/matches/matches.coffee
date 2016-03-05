@@ -25,30 +25,7 @@ class MatchesHelper
 			dom: "Bfrtilpr"
 			ajax: Routes.matches_path(format: 'json')
 			language: {
-				loadingRecords: """
-												<div class="preloader-wrapper active">
-													<div class="spinner-layer spinner-blue">
-														<div class="circle-clipper left"><div class="circle"></div></div>
-														<div class="gap-patch"><div class="circle"></div></div>
-														<div class="circle-clipper right"><div class="circle"></div></div>
-													</div>
-													<div class="spinner-layer spinner-red">
-														<div class="circle-clipper left"><div class="circle"></div></div>
-														<div class="gap-patch"><div class="circle"></div></div>
-														<div class="circle-clipper right"><div class="circle"></div></div>
-													</div>
-													<div class="spinner-layer spinner-yellow">
-														<div class="circle-clipper left"><div class="circle"></div></div>
-														<div class="gap-patch"><div class="circle"></div></div>
-														<div class="circle-clipper right"><div class="circle"></div></div>
-													</div>
-													<div class="spinner-layer spinner-green">
-														<div class="circle-clipper left"><div class="circle"></div></div>
-														<div class="gap-patch"><div class="circle"></div></div>
-														<div class="circle-clipper right"><div class="circle"></div></div>
-													</div>
-												</div>
-												"""
+				loadingRecords: R.dtLoadingRecords
 			}
 			iDisplayLength: 10
 			aLengthMenu: [ [5, 10, 25, 50, -1], [5, 10, 25, 50, "all"] ]

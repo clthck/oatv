@@ -110,5 +110,10 @@ Rails.application.routes.draw do
 
   resources :playlists, only: [:index] do
     post :datatables_editor_cud, on: :collection
+
+    resources :clips, only: [] do
+      get '/' => :index_on_playlist, on: :collection
+      post :datatables_editor_cud_on_playlist, on: :collection
+    end
   end
 end

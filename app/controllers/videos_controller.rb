@@ -1,5 +1,4 @@
 class VideosController < ApplicationController
-	include CurrentVariables
 	respond_to :html
 
 	before_action :add_parent_breadcrumb

@@ -1,0 +1,17 @@
+- content_for :page_title, "Clips on #{@current_playlist.name}"
+
+card-panel
+	table#clips-table.display.table.table-bordered.table-striped.table-hover
+		thead: tr
+			th
+			th Category
+			th Name
+			th Start
+			th End
+			th Match
+			th Date
+		tbody
+
+javascript:
+	R.clipCategories = #{raw @clip_categories.to_json};
+	R.playlistId = #{params[:playlist_id]};

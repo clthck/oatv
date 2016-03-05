@@ -1,7 +1,7 @@
 class Playlist < ActiveRecord::Base
   belongs_to :club
 
-  has_many :playlist_clips
+  has_many :playlist_clips, dependent: :destroy
   has_many :clips, through: :playlist_clips
   
   has_many :playlist_questions
@@ -15,18 +15,17 @@ class Playlist < ActiveRecord::Base
 			when 'create'
 				attributes = data[0][1]
 				attributes[:club_id] = club.id
-				category = self.create! playlist_params(attributes)
+				playlist = self.create! playlist_params(attributes)
 			when 'edit'
 				id = data[0][0]
 				attributes = data[0][1]
-				attributes[:club_id] = club.id
-				category = self.find(id)
-				category.update playlist_params(attributes)
+				playlist = self.find(id)
+				playlist.update playlist_params(attributes)
 			when 'remove'
 				ids = data.collect { |e| e[0] }
 				self.where(id: ids).destroy_all
 			end
-			json_data = { data: [category] }
+			json_data = { data: [playlist] }
 		rescue ActiveRecord::RecordNotUnique => e
 			json_data = {
 				error: "Ugh!",
