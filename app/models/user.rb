@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
 	end
 
 	def avatar
-		self.profile && self.profile.avatar? ? self.profile.avatar.url(:thumb) : 'default_avatar'
+		self.profile ? self.profile.avatar.url(:thumb) : 'default_avatar'
 	end
 
 	private

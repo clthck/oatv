@@ -1,8 +1,9 @@
 class Profile < ActiveRecord::Base
   belongs_to :user
-  has_attached_file :avatar, styles: { medium: '300x300>', thumb: '100x100>' },
+  has_attached_file :avatar, styles: { medium: '300x300#', thumb: '100x100#' },
   	url: '/upload/:class/:attachment/:id_partition/:style/:hash.:extension',
   	path: ':rails_root/public/upload/:class/:attachment/:id_partition/:style/:hash.:extension',
+  	default_url: "/assets/default_avatar.png",
   	hash_secret: '<get_use_rake_secret>'
 
 	validates_attachment :avatar, content_type: { content_type: /\Aimage\/.*\Z/ },
