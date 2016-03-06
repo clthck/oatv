@@ -13,7 +13,7 @@ end
 
 # Create a default admin user
 unless User.find_by email: 'admin@oa.tv'
-	User.create email: 'admin@oa.tv', password: 'secret', password_confirmation: 'secret', confirmed_at: DateTime.now, role: Role.find_by(name: 'admin')
+	User.create email: 'admin@oa.tv', password: 'secret', password_confirmation: 'secret', confirmed_at: DateTime.now, role: Role.find_by(name: 'super_admin')
 end
 
 # Seeds country tables
