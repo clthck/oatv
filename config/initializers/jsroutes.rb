@@ -14,5 +14,6 @@ JsRoutes.setup do |config|
 		/^datatables_editor_cud_playlists$/,
 		/^playlist_clips$/,
 		/^datatables_editor_cud_on_playlist_playlist_clips$/,
+		/^players_clubs$/,
 	]
 end

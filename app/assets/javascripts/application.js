@@ -21,6 +21,7 @@
 //= require pikaday/plugins/pikaday.jquery
 //= require datatables-buttons
 //= require datatables-select
+//= require datatables-scroller
 //= require datatables-editor/dataTables.editor
 //= require jquery-mask-plugin
 //= require datatables-editor/plugins/editor.mask

@@ -4,7 +4,7 @@
 
 # Helper class
 class ClipsHelper
-	@initDataTable: ->
+	@initClipsDataTable: ->
 		$table = $('#clips-table')
 		editor = new $.fn.dataTable.Editor
 			ajax: Routes.datatables_editor_cud_match_video_clips_path(R.matchId, R.videoId)
@@ -56,7 +56,8 @@ class ClipsHelper
 				{ extend: 'create', editor: editor }
 				{ extend: 'edit', editor: editor }
 				{ extend: 'remove', editor: editor }
-				{ extend: 'add_to_playlist', editor: editor }
+				'add_to_playlist'
+				'assign_to_players'
 			]
 			order: [[3, 'asc']]
 			rowId: 'id'
@@ -65,6 +66,7 @@ class ClipsHelper
 			selectedRows = table.rows({ selected: true }).count()
 			table.buttons('.buttons-edit').enable(selectedRows == 1)
 			table.buttons('.buttons-add-to-playlist').enable(selectedRows > 0)
+			table.buttons('.buttons-assign-to-players').enable(selectedRows > 0)
 
 		table.on 'select', checkSelectedRows
 		table.on 'deselect', checkSelectedRows
@@ -76,13 +78,54 @@ class ClipsHelper
 			$('#DTE_Field_start').val moment().startOf('year').seconds($('#DTE_Field_start').val().replace(':', '')).format('HH:mm:ss')
 			$('#DTE_Field_end').val moment().startOf('year').seconds($('#DTE_Field_end').val().replace(':', '')).format('HH:mm:ss')
 
+	@initPlayersDataTable: ->
+		table = $('#players-table').DataTable
+			dom: "BfrtilrS"
+			ajax: Routes.players_clubs_path(format: 'json')
+			language: {
+				loadingRecords: R.dtLoadingRecords
+			}
+			iDisplayLength: 5
+			bLengthChange: off
+			scrollY: '151px'
+			# scrollCollapse: yes
+			deferRender: yes
+			columns: [
+				{
+					data: null, orderable: false, width: '15px'
+					render: (data, type, row, meta) ->
+						"<input type='checkbox' id='chk-cat-#{data.id}'><label for='chk-cat-#{data.id}'></label>"
+					className: 'checkbox-td'
+				}, {
+					data: null
+					render: (data, type, row, meta) -> "<img class='avatar circle' alt='#{data.full_name}' src='#{data.avatar_url_thumb}'>#{data.full_name}"
+				}
+			]
+			select: {
+				style: 'multiple'
+				selector: 'td:first-child [type="checkbox"]'
+			}
+			buttons: [
+				'assign_clips_to_players'
+			]
+			order: []
+			rowId: 'id'
+
+		checkSelectedRows = ->
+			selectedRows = table.rows({ selected: true }).count()
+			table.buttons('.buttons-assign-clips-to-players').enable(selectedRows > 0)
+
+		table.on 'select', checkSelectedRows
+		table.on 'deselect', checkSelectedRows
+
 # clips#index
 R.pages['clips-index'] = do ($ = jQuery, window, document) ->
 	run = ->
 
 		$playlistsPopup = $('#playlists-popup')
+		$playersPopup = $('#players-popup')
 
-		$.fn.dataTable.ext.buttons.add_to_playlist = {
+		$.fn.dataTable.ext.buttons.add_to_playlist =
 			text: 'Add to Playlist'
 			action: (e, dt, node, config) ->
 				selectedRows = dt.rows({selected: true})
@@ -93,10 +136,27 @@ R.pages['clips-index'] = do ($ = jQuery, window, document) ->
 				}
 			enabled: no
 			className: 'buttons-add-to-playlist blue'
-		}
 
-		$('form', $playlistsPopup).on 'ajax:success', ->
-			$playlistsPopup.closeModal()
+		$.fn.dataTable.ext.buttons.assign_to_players =
+			text: 'Assign to Players'
+			action: (e, dt, node, config) ->
+				$playersPopup.openModal()
+			enabled: no
+			className: 'buttons-assign-to-players blue'
 
-		ClipsHelper.initDataTable()
+		$.fn.dataTable.ext.buttons.assign_clips_to_players =
+			text: 'Assign Clips to Players'
+			action: (e, dt, node, config) ->
+				selectedClips = $('#clips-table').DataTable().rows({selected: true})
+				selectedPlayers = dt.rows({selected: true})
+				$('#clip_ids').val _.map(selectedClips.data(), (o) -> o.id).join()
+				$('#player_ids').val _.map(selectedPlayers.data(), (o) -> o.id).join()
+				$('form', $playersPopup).submit().one 'ajax:success', -> $playersPopup.closeModal()
+			enabled: no
+			className: 'buttons-assign-clips-to-players blue'
+
+		$('form', $playlistsPopup).on 'ajax:success', -> $playlistsPopup.closeModal()
+
+		ClipsHelper.initClipsDataTable()
+		ClipsHelper.initPlayersDataTable()
 	{ run: run }

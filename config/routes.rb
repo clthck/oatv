@@ -80,6 +80,7 @@ Rails.application.routes.draw do
     collection do
       get :choose_subscription_plan
       post :activate_subscription_plan
+      get :players
     end
   end
 
@@ -100,6 +101,7 @@ Rails.application.routes.draw do
 
       resources :clips, only: [:index] do
         post :datatables_editor_cud, on: :collection
+        post :assign_clips_to_players, on: :collection
       end
     end
   end

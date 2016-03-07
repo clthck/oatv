@@ -11,4 +11,12 @@ class ClubsController < ApplicationController
 		flash[:notice] = "You have successfully activated your subscription plan!"
 		redirect_to :back
 	end
+
+	# GET
+	def players
+		@players = current_user.club.players.joins(:profile).order('profiles.full_name asc')
+		respond_to do |format|
+			format.json
+		end
+	end
 end

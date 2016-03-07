@@ -67,6 +67,12 @@ class Clip < ActiveRecord::Base
 		json_data
 	end
 
+	# Assign clips to players
+	def self.assign_clips_to_players(clip_ids, player_ids)
+		players = Player.find(player_ids)
+		Clip.find(clip_ids).each { |clip| clip.players += players }
+	end
+
 	private
 
 	# Get strong parameters for DataTables Editor CUD

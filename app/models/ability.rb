@@ -48,6 +48,7 @@ class Ability
       can :manage, ClipCategory
       can :manage, Clip
       can :manage, Playlist
+      can :players, Club
     else
     end
   end

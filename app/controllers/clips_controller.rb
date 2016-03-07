@@ -4,9 +4,10 @@ class ClipsController < ApplicationController
 
 	# GET
 	def index
+		current_club = current_user.club
 		add_breadcrumb "Clips", match_video_clips_path
 		clips = current_video.clips.order(:start)
-		@playlists = current_user.club.playlists.order(:name)
+		@playlists = current_club.playlists.order(:name)
 		respond_to do |format|
 			format.html
 			format.json { render json: { data: clips.as_json(include: :category) } }
@@ -42,6 +43,14 @@ class ClipsController < ApplicationController
 		respond_to do |format|
 			format.json { render json: json_data }
 		end
+	end
+
+	# POST
+	def assign_clips_to_players
+		clip_ids = params[:clip_ids].split(',')
+		player_ids = params[:player_ids].split(',')
+		Clip.assign_clips_to_players clip_ids, player_ids
+		render json: {}
 	end
 
 	private
