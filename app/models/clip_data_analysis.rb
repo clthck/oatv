@@ -26,7 +26,7 @@ class ClipDataAnalysis
 
 		lines.each_with_index do |line, i|
 			if m = line[0].match(/CATEGORY: (.+)/i)
-				current_category = ClipCategory.where('lower(name) = ?', m[1].downcase).first_or_create
+				current_category = ClipCategory.where('lower(name) = ?', m[1].downcase).first || ClipCategory.create(name: m[1])
 			else
 				start = Moment.to_seconds(line[2], false)
 				stop = Moment.to_seconds(line[3], false)

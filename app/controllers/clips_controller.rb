@@ -53,6 +53,11 @@ class ClipsController < ApplicationController
 		render json: {}
 	end
 
+	# GET
+	def for_me
+		@clips = current_user.becomes(Player).clips.order('clip_players.created_at desc')
+	end
+
 	private
 
 	# Add breadcrumbs for parent objects

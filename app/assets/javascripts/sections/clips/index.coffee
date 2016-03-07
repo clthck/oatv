@@ -151,7 +151,10 @@ R.pages['clips-index'] = do ($ = jQuery, window, document) ->
 				selectedPlayers = dt.rows({selected: true})
 				$('#clip_ids').val _.map(selectedClips.data(), (o) -> o.id).join()
 				$('#player_ids').val _.map(selectedPlayers.data(), (o) -> o.id).join()
-				$('form', $playersPopup).submit().one 'ajax:success', -> $playersPopup.closeModal()
+				$('form', $playersPopup).submit().one 'ajax:success', ->
+					$playersPopup.closeModal()
+					dt.rows({selected: true}).deselect()
+					$('input:checked', '#players-table').prop 'checked', no
 			enabled: no
 			className: 'buttons-assign-clips-to-players blue'
 

@@ -2,7 +2,7 @@ class Clip < ActiveRecord::Base
   belongs_to :video
   belongs_to :category, class_name: 'ClipCategory'
 
-  has_many :clip_players
+  has_many :clip_players, dependent: :destroy
   has_many :players, through: :clip_players
 
   has_many :playlist_clips

@@ -118,4 +118,8 @@ Rails.application.routes.draw do
       post :datatables_editor_cud_on_playlist, on: :collection
     end
   end
+
+  resources :clips, only: [] do
+    get :for_me, on: :collection
+  end
 end
