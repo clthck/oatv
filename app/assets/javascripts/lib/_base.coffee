@@ -76,7 +76,10 @@ do (init = ($, window, document) ->
 	jQuery DOM document ready event handler
 	###
 	$ ->
-		$('.nano').nanoScroller() if $.fn.nanoScroller
+		$('.nano').nanoScroller()
+		$('.nano').each ->
+			new ResizeSensor this, -> $(this).nanoScroller()
+		new ResizeSensor document.getElementById('main-content'), -> $('body').nanoScroller()
 
 		# For compatibility with turbolinks
 		Waves.displayEffect()

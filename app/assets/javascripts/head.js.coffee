@@ -7,6 +7,7 @@
 #= require datatables
 #= require js-routes
 #= require animateCSS
+#= require css-element-queries/src/ResizeSensor
 #= require video.js/dist/video
 #= require videojs-youtube
 #= require lib/_R
