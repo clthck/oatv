@@ -11,7 +11,7 @@
 							| Video: #{clip.video.title}
 							br
 							| Match: #{clip.video.match.name}
-		.col.s8
+		.col.s8#video-clip-wrapper
 			video#video-clip.video-js.vjs-default-skin.responsive-embed-16x9.fluid-width(controls preload="auto" data-setup-deferred='{"techOrder": ["youtube"], "sources": [{"type": "video/youtube", "src": "#{@clips[0].video.url}"}] }')
 	- else
 		.col.s12
