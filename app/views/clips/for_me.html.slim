@@ -2,7 +2,7 @@
 
 .card-panel.row
 	- if @clips.count > 0
-		.col.s4
+		.col.s4: #clips-list-wrapper.nano: .nano-content
 			#clips-list.collection.mt-0
 				- @clips.each do |clip|
 					a.collection-item data-clip-start="#{clip.start}" data-clip-end="#{clip.end}" data-clip-video-url="#{clip.video.url}" href="#!"

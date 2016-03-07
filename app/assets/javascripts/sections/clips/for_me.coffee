@@ -24,9 +24,9 @@ R.pages['clips-for_me'] = do ($ = jQuery, window, document) ->
 					video.off 'timeupdate', monitorClip
 			video.on 'timeupdate', monitorClip
 
-		$('#clips-list').height $('#video-clip-wrapper').height()
-		
+		$('#clips-list-wrapper').height $('#video-clip-wrapper').height()
+
 		new ResizeSensor document.getElementById('video-clip-wrapper'), ->
-			$('#clips-list').height $('#video-clip-wrapper').height()
+			$('#clips-list-wrapper').height $('#video-clip-wrapper').height()
 		
 	{ run: run }
