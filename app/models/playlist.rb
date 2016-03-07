@@ -41,6 +41,14 @@ class Playlist < ActiveRecord::Base
 		end
 	end
 
+	# Assign playlists to players
+	def self.assign_playlists_to_players(playlist_ids, player_ids)
+		players = Player.find(player_ids)
+		Playlist.find(playlist_ids).each do |playlist|
+			playlist.clips.each { |clip| clip.players += players }
+		end
+	end
+
 	private
 
 	# Get strong parameters for DataTables Editor CUD

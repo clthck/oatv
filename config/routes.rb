@@ -100,8 +100,10 @@ Rails.application.routes.draw do
       get :analyze_data, on: :member
 
       resources :clips, only: [:index] do
-        post :datatables_editor_cud, on: :collection
-        post :assign_clips_to_players, on: :collection
+        collection do
+          post :datatables_editor_cud
+          post :assign_clips_to_players
+        end
       end
     end
   end
@@ -111,11 +113,16 @@ Rails.application.routes.draw do
   end
 
   resources :playlists, only: [:index] do
-    post :datatables_editor_cud, on: :collection
+    collection do
+      post :datatables_editor_cud
+      post :assign_playlists_to_players
+    end
 
     resources :clips, only: [] do
-      get '/' => :index_on_playlist, on: :collection
-      post :datatables_editor_cud_on_playlist, on: :collection
+      collection do
+        get '/' => :index_on_playlist
+        post :datatables_editor_cud_on_playlist
+      end
     end
   end
 

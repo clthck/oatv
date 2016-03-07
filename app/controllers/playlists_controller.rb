@@ -17,4 +17,12 @@ class PlaylistsController < ApplicationController
 			format.json
 		end
 	end
+
+	# POST
+	def assign_playlists_to_players
+		playlist_ids = params[:playlist_ids].split(',')
+		player_ids = params[:player_ids].split(',')
+		Playlist.assign_playlists_to_players playlist_ids, player_ids
+		render json: {}
+	end
 end
