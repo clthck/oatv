@@ -34,7 +34,9 @@ R.pages['clips-for_me'] = do ($ = jQuery, window, document) ->
 
 		$('#view-stats').on 'click', ->
 			$activeItemEl = $('.active', '#clips-list')
-			return unless $activeItemEl.length > 0
+			unless $activeItemEl.length > 0
+				Materialize.toast 'Select clip first!', 4000, 'rounded'
+				return
 			$statsPopup.openModal()
 			$statsPopupContent.materialBlock()
 			$.ajax

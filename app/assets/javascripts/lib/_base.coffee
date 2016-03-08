@@ -4,6 +4,8 @@ do (init = ($, window, document) ->
 	inputOldValue = undefined
 	$sideNav = undefined
 
+	# $bodyEl.addClass 'yay-hide'
+
 	# Define custom event 'changeBlur' for form input elements
 	$bodyEl.on 'focus', 'input, textarea, select', ->
 		inputOldValue = $(this).val()
