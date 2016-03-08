@@ -32,6 +32,7 @@ class Ability
     alias_action :index, to: :access
 
     can :access, :dashboard
+    can :update_yaybar_hidden_state, :dashboard
 
     user ||= User.new
     if user.is? :super_admin

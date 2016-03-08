@@ -63,4 +63,9 @@ module ApplicationHelper
 		Time.at(seconds).utc.strftime "%H:%M:%S"
 	end
 
+	# Returns class name 'yay-hide' or '', according to yaybar toggle state
+	def yaybar_state_class
+		cookies.permanent[:yaybar_hidden] == 'true' ? 'yay-hide' : ''
+	end
+
 end

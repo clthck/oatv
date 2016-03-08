@@ -74,7 +74,9 @@ Rails.application.routes.draw do
   # user_root_path for devise sign_in/sign_up redirect
   get '/dashboard' => 'dashboard#index', as: :user_root
 
-  resources :dashboard, only: [:index]
+  resources :dashboard, only: [:index] do
+    put :update_yaybar_hidden_state, on: :collection
+  end
 
   resources :clubs, only: [] do
     collection do

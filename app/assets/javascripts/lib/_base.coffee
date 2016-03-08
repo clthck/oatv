@@ -4,8 +4,6 @@ do (init = ($, window, document) ->
 	inputOldValue = undefined
 	$sideNav = undefined
 
-	# $bodyEl.addClass 'yay-hide'
-
 	# Define custom event 'changeBlur' for form input elements
 	$bodyEl.on 'focus', 'input, textarea, select', ->
 		inputOldValue = $(this).val()
@@ -100,6 +98,12 @@ do (init = ($, window, document) ->
 		$('.dt-buttons').addClass('btn-group')
 		$('.dt-button').addClass('btn btn-rounded waves-effect waves-light')
 		$('.dataTables_length').addClass('ml-20')
+
+		$('.yay-toggle').on 'click', ->
+			$.ajax
+				type: 'put'
+				url: Routes.update_yaybar_hidden_state_dashboard_index_path()
+				data: { yaybar_hidden: $bodyEl.hasClass('yay-hide') }
 
 ) ->
 	init window.jQuery, window, document

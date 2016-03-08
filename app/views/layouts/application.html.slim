@@ -21,7 +21,8 @@ doctype html
 		/[if lt IE 9]
 			= javascript_include_tag 'html5shiv/dist/html5shiv.min'
 
-	body.nano(id="#{controller_name}-#{action_name}")
+	body.nano(id="#{controller_name}-#{action_name}" class="#{yaybar_state_class}")
+		h1= cookies.permanent[:yaybar_hidden]
 		.nano-content
 			= render partial: "layouts/nav"
 			= render partial: "layouts/aside"
