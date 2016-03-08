@@ -4,6 +4,7 @@ JsRoutes.setup do |config|
 		/^datatables_editor_cud_matches_categories$/,
 		/^matches$/,
 		/^datatables_editor_cud_matches$/,
+		/^edit_stats_match$/,
 		/^stats_match$/,
 		/^match_videos$/,
 		/^clip_categories$/,

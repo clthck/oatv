@@ -51,6 +51,7 @@ class Ability
       can :players, Club
     elsif user.is? :player
       can :for_me, Clip
+      can :stats, Match
     else
     end
   end

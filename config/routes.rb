@@ -94,6 +94,7 @@ Rails.application.routes.draw do
 
   resources :matches, only: [:index, :show, :update], controller: 'matches/matches' do
     post :datatables_editor_cud, on: :collection
+    get :edit_stats, on: :member
     get :stats, on: :member
 
     resources :videos, except: [:edit, :update, :show] do

@@ -28,5 +28,18 @@ R.pages['clips-for_me'] = do ($ = jQuery, window, document) ->
 
 		new ResizeSensor document.getElementById('video-clip-wrapper'), ->
 			$('#clips-list-wrapper').height $('#video-clip-wrapper').height()
+
+		$statsPopup = $('#stats-popup')
+		$statsPopupContent = $('.modal-content', $statsPopup)
+
+		$('#view-stats').on 'click', ->
+			$activeItemEl = $('.active', '#clips-list')
+			return unless $activeItemEl.length > 0
+			$statsPopup.openModal()
+			$statsPopupContent.materialBlock()
+			$.ajax
+				type: 'get'
+				url: Routes.stats_match_path($activeItemEl.data('match-id'))
+				success: (data) -> $statsPopupContent.html(data).materialUnblock()
 		
 	{ run: run }

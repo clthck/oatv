@@ -43,7 +43,7 @@ class MatchesHelper
 					data: 'date', type: 'date'
 				}, {
 					data: null, orderable: false
-					render: (data) -> "<a href='#{Routes.stats_match_path(data.id)}'>STATS</a>"
+					render: (data) -> "<a href='#{Routes.edit_stats_match_path(data.id)}'>STATS</a>"
 				}, {
 					data: null, orderable: false
 					render: (data) -> "<a href='#{Routes.match_videos_path(data.id)}'>Videos</a>"

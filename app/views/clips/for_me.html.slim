@@ -5,7 +5,7 @@
 		.col.s4: #clips-list-wrapper.nano: .nano-content
 			#clips-list.collection.mt-0
 				- @clips.each do |clip|
-					a.collection-item data-clip-start="#{clip.start}" data-clip-end="#{clip.end}" data-clip-video-url="#{clip.video.url}" href="#!"
+					a.collection-item data-clip-start="#{clip.start}" data-clip-end="#{clip.end}" data-clip-video-url="#{clip.video.url}" data-match-id="#{clip.video.match.id}" href="javascript:void(0)"
 						span.title #{clip.name} (#{clip.category.name})
 						p
 							| Video: #{clip.video.title}
@@ -13,6 +13,13 @@
 							| Match: #{clip.video.match.name}
 		.col.s8#video-clip-wrapper
 			video#video-clip.video-js.vjs-default-skin.responsive-embed-16x9.fluid-width(controls preload="auto" data-setup-deferred='{"techOrder": ["youtube"], "sources": [{"type": "video/youtube", "src": "#{@clips[0].video.url}"}] }')
+			.row
+				.col.s12.center-align
+					button#view-stats.btn.waves-effect.waves-light View Match Stats
 	- else
 		.col.s12
 			h3 There are no clips for you to show.
+
+.modal#stats-popup style="overflow: hidden; max-height: 100%;"
+	.modal-content
+		.p.p-50

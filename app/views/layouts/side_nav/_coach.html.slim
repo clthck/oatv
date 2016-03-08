@@ -28,7 +28,7 @@ li class="#{cp matches_categories_path}"
 		i.fa.fa-cog
 		| Match Categories
 
-li class="#{cp(matches_path) || cp_against_ca('matches#show', 'matches#stats', 'videos#index', 'clips#index')}"
+li class="#{cp(matches_path) || cp_against_ca('matches#show', 'matches#stats', 'matches#edit_stats', 'videos#index', 'clips#index')}"
 	= link_to matches_path, class: "waves-effect waves-blue"
 		i.fa.fa-cog
 		| Matches &amp; Videos
