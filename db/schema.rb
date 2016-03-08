@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160304064639) do
+ActiveRecord::Schema.define(version: 20160305053524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -134,6 +134,7 @@ ActiveRecord::Schema.define(version: 20160304064639) do
     t.integer "club_id", index: {name: "index_playlists_on_club_id"}, foreign_key: {references: "clubs", name: "fk_playlists_club_id", on_update: :no_action, on_delete: :no_action}
     t.string  "name"
   end
+  add_index "playlists", ["club_id", "name"], name: "index_playlists_on_club_id_and_name", unique: true
 
   create_table "playlist_clips", force: :cascade do |t|
     t.integer "playlist_id", index: {name: "index_playlist_clips_on_playlist_id"}, foreign_key: {references: "playlists", name: "fk_playlist_clips_playlist_id", on_update: :no_action, on_delete: :no_action}

@@ -15,7 +15,7 @@ nav.navbar-top
 		/ Logo
 		= link_to user_root_path, class: 'brand-logo'
 			= image_tag('logo')
-		h3.navbar-title= current_user.club.name
+		h3.navbar-title= current_user.club.name unless current_user.club.nil?
 		/ Menu
 		ul
 			li: a.search-bar-toggle: i.mdi-action-search

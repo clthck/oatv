@@ -1,0 +1,25 @@
+// Place all the styles related to the playlists controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#playlists-index {
+
+	#players-table {
+		tbody td {
+			padding: 4px 5px;
+			img {
+				vertical-align: middle;
+			}
+		}
+
+		.checkbox-td label {
+			height: 22px;
+		}
+
+		.avatar {
+			width: 27px;
+			margin-right: 10px;
+		}
+	}
+
+}

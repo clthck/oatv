@@ -13,9 +13,6 @@ class User < ActiveRecord::Base
 	has_one :profile, dependent: :destroy
 	accepts_nested_attributes_for :profile
 
-	has_many :clip_players
-	has_many :clips, through: :clip_players
-
 	def is?(role)
 		self.role.name == role.to_s
 	end
@@ -25,7 +22,7 @@ class User < ActiveRecord::Base
 	end
 
 	def avatar
-		self.profile && self.profile.avatar? ? self.profile.avatar.url(:thumb) : 'default_avatar'
+		self.profile ? self.profile.avatar.url(:thumb) : 'default_avatar'
 	end
 
 	private

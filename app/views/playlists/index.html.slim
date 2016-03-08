@@ -1,0 +1,20 @@
+- content_for :page_title, "Playlists"
+
+.card-panel
+	table#playlists-table.display.table.table-bordered.table-striped.table-hover
+		thead: tr
+			th
+			th Name
+			th Clips
+		tbody
+
+#players-popup.modal.bottom-sheet style="display: block;"
+	.modal-content
+		= form_tag assign_playlists_to_players_playlists_path, remote: true do
+			= hidden_field_tag :playlist_ids, ''
+			= hidden_field_tag :player_ids, ''
+		table#players-table.display.table.table-bordered.table-striped.table-hover
+			thead: tr
+				th
+				th Name
+			tbody

@@ -80,6 +80,7 @@ Rails.application.routes.draw do
     collection do
       get :choose_subscription_plan
       post :activate_subscription_plan
+      get :players
     end
   end
 
@@ -92,19 +93,41 @@ Rails.application.routes.draw do
   end
 
   resources :matches, only: [:index, :show, :update], controller: 'matches/matches' do
-    collection do
-      post :datatables_editor_cud
-    end
-    member do
-      get :stats
-    end
+    post :datatables_editor_cud, on: :collection
+    get :edit_stats, on: :member
+    get :stats, on: :member
 
     resources :videos, except: [:edit, :update, :show] do
       get :analyze_data, on: :member
+
+      resources :clips, only: [:index] do
+        collection do
+          post :datatables_editor_cud
+          post :assign_clips_to_players
+        end
+      end
     end
   end
 
-  resources :clip_categories do
+  resources :clip_categories, only: [:index] do
     post :datatables_editor_cud, on: :collection
+  end
+
+  resources :playlists, only: [:index] do
+    collection do
+      post :datatables_editor_cud
+      post :assign_playlists_to_players
+    end
+
+    resources :clips, only: [] do
+      collection do
+        get '/' => :index_on_playlist
+        post :datatables_editor_cud_on_playlist
+      end
+    end
+  end
+
+  resources :clips, only: [] do
+    get :for_me, on: :collection
   end
 end

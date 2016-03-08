@@ -1215,3 +1215,8 @@ table.dataTable.display tbody tr.selected {
 .dataTables_info .select-info {
   margin-left: 15px;
 }
+
+.dataTables_scrollHead table thead th:first-child {
+  padding-left: 0;
+  padding-right: 1px;
+}

@@ -36,10 +36,15 @@
     "datatables-select": "^1.1.2",
     "parsleyjs": "latest",
     "pikaday": "latest",
-    "moment": "latest",
+    "moment": "^2.11.2",
     "datatables-plugins": "^1.10.11",
     "animate.css": "^3.5.1",
-    "animateCSS": "^1.2.1"
+    "animateCSS": "^1.2.1",
+    "jquery-mask-plugin": "jQuery-Mask-Plugin#^1.13.4",
+    "datatables-scroller": "^1.4.1",
+    "video.js": "videojs#^5.8.0",
+    "videojs-youtube": "^2.0.8",
+    "css-element-queries": "^0.3.2"
   },
   "resolutions": {
     "animate.css": "^3.5.1"

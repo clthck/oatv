@@ -1,0 +1,37 @@
+- content_for :page_title, "Match Video Clips"
+
+.card-panel
+	table#clips-table.display.table.table-bordered.table-striped.table-hover
+		thead: tr
+			th
+			th Category
+			th Name
+			th Start
+			th End
+		tbody
+
+#playlists-popup.modal.mw-500
+	= form_tag datatables_editor_cud_match_video_clips_path, remote: true, method: :post do
+		= hidden_field_tag :action, 'add_to_playlist'
+		= hidden_field_tag "data[clip_ids]", ''
+		.modal-content
+			= label_tag :playlist_id
+			= select_tag "data[playlist_id]", options_from_collection_for_select(@playlists, :id, :name)
+		.modal-footer.pr-24.mb-12
+			= button_tag 'Add clips to playlist', class: "btn waves-effect waves-light"
+
+#players-popup.modal.bottom-sheet style="display: block;"
+	.modal-content
+		= form_tag assign_clips_to_players_match_video_clips_path, remote: true do
+			= hidden_field_tag :clip_ids, ''
+			= hidden_field_tag :player_ids, ''
+		table#players-table.display.table.table-bordered.table-striped.table-hover
+			thead: tr
+				th
+				th Name
+			tbody
+
+javascript:
+	R.clipCategories = #{raw @clip_categories.to_json};
+	R.matchId = #{params[:match_id]};
+	R.videoId = #{params[:video_id]};

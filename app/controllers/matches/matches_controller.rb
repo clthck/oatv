@@ -31,6 +31,14 @@ class Matches::MatchesController < ApplicationController
 		add_breadcrumb "Match", @match
 		add_breadcrumb "Stats", stats_match_path(@match)
 		@match.build_match_stat if @match.match_stat.nil?
+		render layout: false
+	end
+
+	# GET
+	def edit_stats
+		add_breadcrumb "Match", @match
+		add_breadcrumb "Stats", edit_stats_match_path(@match)
+		@match.build_match_stat if @match.match_stat.nil?
 	end
 
 	# PATCH

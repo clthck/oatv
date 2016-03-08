@@ -46,6 +46,12 @@ class Ability
       can :manage, Match
       can :manage, Video
       can :manage, ClipCategory
+      can :manage, Clip
+      can :manage, Playlist
+      can :players, Club
+    elsif user.is? :player
+      can :for_me, Clip
+      can :stats, Match
     else
     end
   end
