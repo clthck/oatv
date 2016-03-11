@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'puma'
+gem 'redis'
 
 gem 'devise'
 gem 'cancancan', '~> 1.10'

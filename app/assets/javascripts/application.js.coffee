@@ -29,6 +29,7 @@
 # = require con-material-admin-dashboard/_con
 
 # = require lib/_base
+# = require lib/chat
 # = require_tree ./sections/dashboard/
 # = require_tree ./sections/matches/
 # = require_tree ./sections/videos/

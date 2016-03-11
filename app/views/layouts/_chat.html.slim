@@ -13,89 +13,13 @@
 			.list.nano
 				.nano-content
 					span.label Online
-					.user
-						= image_tag 'logo', class: 'circle photo', alt: 'Felecia Castro'
-						.name Felecia Castro
-						.status Lorem status
-						.online: i.green-text.fa.fa-circle
-					.user
-						= image_tag 'logo', class: 'circle photo', alt: 'Max Brooks'
-						.name Max Brooks
-						.status Lorem status
-						.online: i.yellow-text.fa.fa-circle
-					.user
-						= image_tag 'logo', class: 'circle photo', alt: 'Felecia Castro'
-						.name Felecia Castro
-						.status Lorem status
-						.online: i.green-text.fa.fa-circle
-					.user
-						= image_tag 'logo', class: 'circle photo', alt: 'Max Brooks'
-						.name Max Brooks
-						.status Lorem status
-						.online: i.yellow-text.fa.fa-circle
-					.user
-						= image_tag 'logo', class: 'circle photo', alt: 'Felecia Castro'
-						.name Felecia Castro
-						.status Lorem status
-						.online: i.green-text.fa.fa-circle
-					.user
-						= image_tag 'logo', class: 'circle photo', alt: 'Max Brooks'
-						.name Max Brooks
-						.status Lorem status
-						.online: i.yellow-text.fa.fa-circle
-					.user
-						= image_tag 'logo', class: 'circle photo', alt: 'Felecia Castro'
-						.name Felecia Castro
-						.status Lorem status
-						.online: i.green-text.fa.fa-circle
-					.user
-						= image_tag 'logo', class: 'circle photo', alt: 'Max Brooks'
-						.name Max Brooks
-						.status Lorem status
-						.online: i.yellow-text.fa.fa-circle
-					.user
-						= image_tag 'logo', class: 'circle photo', alt: 'Felecia Castro'
-						.name Felecia Castro
-						.status Lorem status
-						.online: i.green-text.fa.fa-circle
-					.user
-						= image_tag 'logo', class: 'circle photo', alt: 'Max Brooks'
-						.name Max Brooks
-						.status Lorem status
-						.online: i.yellow-text.fa.fa-circle
-					.user
-						= image_tag 'logo', class: 'circle photo', alt: 'Felecia Castro'
-						.name Felecia Castro
-						.status Lorem status
-						.online: i.green-text.fa.fa-circle
-					.user
-						= image_tag 'logo', class: 'circle photo', alt: 'Max Brooks'
-						.name Max Brooks
-						.status Lorem status
-						.online: i.yellow-text.fa.fa-circle
-					.user
-						= image_tag 'logo', class: 'circle photo', alt: 'Felecia Castro'
-						.name Felecia Castro
-						.status Lorem status
-						.online: i.green-text.fa.fa-circle
-					.user
-						= image_tag 'logo', class: 'circle photo', alt: 'Max Brooks'
-						.name Max Brooks
-						.status Lorem status
-						.online: i.yellow-text.fa.fa-circle
+					- @chatroom_users.each do |user|
+						.user data-sender-id="#{current_user.id}" data-recipient-id="#{user.id}"
+							= image_tag(user.avatar, class: 'circle photo', alt: user.display_name)
+							.name= user.display_name
+							.status Lorem status
+							.online: i.green-text.fa.fa-circle
 					span.label Offline
-					.user
-						= image_tag 'logo', class: 'circle photo', alt: 'Willie Kelly'
-						.name Willie Kelly
-						.status Lorem status
-					.user
-						= image_tag 'logo', class: 'circle photo', alt: 'Willie Kelly'
-						.name Willie Kelly
-						.status Lorem status
-					.user
-						= image_tag 'logo', class: 'circle photo', alt: 'Willie Kelly'
-						.name Willie Kelly
-						.status Lorem status
 		/ Messages
 		.messages
 			/ Top bar with back link
@@ -132,7 +56,8 @@
 							| Hi again!
 			/ Send message
 			.send
-				form
+				= form_tag '', remote: true, method: :post do
 					.input-field
-						input#chat-message type="text" name="chat-message"
+						input#message-body type="text" name="message[body]"
+						/ input#chat-message type="text" name="chat-message"
 					button.btn.waves-effect.z-depth-0: i.mdi-content-send

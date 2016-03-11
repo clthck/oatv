@@ -17,5 +17,8 @@ JsRoutes.setup do |config|
 		/^datatables_editor_cud_on_playlist_playlist_clips$/,
 		/^players_clubs$/,
 		/^update_yaybar_hidden_state_dashboard_index$/,
+		/^conversations$/,
+		/^conversation_messages$/,
+		/^events_conversations$/,
 	]
 end

@@ -3,6 +3,8 @@ class VideosController < ApplicationController
 
 	before_action :add_parent_breadcrumb
 
+	include ActionController::Live
+
 	# GET
 	def index
 		@videos = current_match.videos.order(created_at: :asc)
