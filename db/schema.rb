@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160305053524) do
+ActiveRecord::Schema.define(version: 20160311025647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -109,6 +109,13 @@ ActiveRecord::Schema.define(version: 20160305053524) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "conversations", force: :cascade do |t|
+    t.integer  "sender_id",    index: {name: "index_conversations_on_sender_id"}, foreign_key: {references: "users", name: "fk_conversations_sender_id", on_update: :no_action, on_delete: :no_action}
+    t.integer  "recipient_id", index: {name: "index_conversations_on_recipient_id"}, foreign_key: {references: "users", name: "fk_conversations_recipient_id", on_update: :no_action, on_delete: :no_action}
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "match_stats", force: :cascade do |t|
     t.integer "match_id",           index: {name: "index_match_stats_on_match_id"}, foreign_key: {references: "matches", name: "fk_match_stats_match_id", on_update: :no_action, on_delete: :no_action}
     t.integer "goals_h"
@@ -128,6 +135,14 @@ ActiveRecord::Schema.define(version: 20160305053524) do
     t.integer "offsides_a"
     t.integer "fouls_conceded_h"
     t.integer "fouls_conceded_a"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "conversation_id", index: {name: "fk__messages_conversation_id"}, foreign_key: {references: "conversations", name: "fk_messages_conversation_id", on_update: :no_action, on_delete: :no_action}
+    t.integer  "user_id",         index: {name: "fk__messages_user_id"}, foreign_key: {references: "users", name: "fk_messages_user_id", on_update: :no_action, on_delete: :no_action}
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "playlists", force: :cascade do |t|

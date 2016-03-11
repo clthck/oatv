@@ -33,6 +33,8 @@ class Ability
 
     can :access, :dashboard
     can :update_yaybar_hidden_state, :dashboard
+    can :manage, Conversation
+    can :manage, Message
 
     user ||= User.new
     if user.is? :super_admin

@@ -43,6 +43,9 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :sendmail
 
   Paperclip.options[:command_path] = "/usr/local/bin/"
+
+  config.preload_frameworks = true
+  config.allow_concurrency = true
 end
 
 Yt.configure do |config|

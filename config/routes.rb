@@ -132,4 +132,10 @@ Rails.application.routes.draw do
   resources :clips, only: [] do
     get :for_me, on: :collection
   end
+
+  resources :conversations, only: [:create] do
+    resources :messages, only: [:create]
+    
+    get :events, on: :collection
+  end
 end
