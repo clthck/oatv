@@ -38,14 +38,16 @@ class ApplicationController < ActionController::Base
   end
 
   def get_chatroom_info
-    @chatroom_users = (if current_user.is? :coach
-      current_user.club.players
-    elsif current_user.is? :player
-      current_user.club.coaches
-    else
-      User.none
-    end)
-    .joins(:profile).order('profiles.full_name')
+    if current_user
+      @chatroom_users = (if current_user.is? :coach
+        current_user.club.players
+      elsif current_user.is? :player
+        current_user.club.coaches
+      else
+        User.none
+      end)
+      .joins(:profile).order('profiles.full_name')
+    end
   end
 
 end
