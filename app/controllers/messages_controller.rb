@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
 		message = conversation.messages.build(message_params)
 		message.user = current_user
 		message.save!
-		$redis.publish("conv/#{conversation.id}", message.attributes)
+		$redis.publish("conv/#{conversation.id}", message.to_json)
 		render json: {}, status: :ok
 	end
 
