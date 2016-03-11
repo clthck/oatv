@@ -34,6 +34,23 @@ Run the following command to install bower:
 sudo npm install -g bower
 ```
 
+### Redis
+
+OATV uses [redis](http://redis.io) for built-in real-time chat room feature.
+So redis must be installed before running OATV. Default redis server configuration will be sufficient for OATV application.
+You can [download](http://redis.io/download) and manually install it, as shown in the following command:
+```shell
+cd ~
+wget http://download.redis.io/releases/redis-3.0.7.tar.gz
+tar xzf redis-3.0.7.tar.gz
+cd redis-3.0.7
+make
+```
+Now add redis executable path to `PATH` env variable.
+```shell
+echo 'export PATH=~/redis-3.0.7/src:$PATH' >> ~/.bash_profile
+```
+
 ### Environment Variables
 
 OATV uses environment variables for some configurations.
@@ -66,5 +83,6 @@ Now we're ready to run OATV application.
 ### Development Mode
 
 ```shell
+redis-server
 rails s
 ```
