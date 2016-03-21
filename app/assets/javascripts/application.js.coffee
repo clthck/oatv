@@ -25,6 +25,7 @@
 # = require jquery-mask-plugin
 # = require datatables-editor/plugins/editor.mask
 # = require datatables-plugins/api/row().show()
+# = require faye
 
 # = require con-material-admin-dashboard/_con
 

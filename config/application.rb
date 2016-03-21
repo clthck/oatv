@@ -42,5 +42,8 @@ module Oatv
     Yt.configure do |config|
       config.api_key = ENV['OATV_YOUTUBE_API_KEY']
     end
+
+    config.middleware.delete Rack::Lock
+    config.middleware.use FayeRails::Middleware, mount: '/faye', timeout: 25
   end
 end

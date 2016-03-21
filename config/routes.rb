@@ -135,7 +135,5 @@ Rails.application.routes.draw do
 
   resources :conversations, only: [:create] do
     resources :messages, only: [:create]
-    
-    get :events, on: :collection
   end
 end

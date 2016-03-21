@@ -27,6 +27,10 @@ class User < ActiveRecord::Base
 		self.profile ? self.profile.avatar.url(:thumb) : 'default_avatar'
 	end
 
+	def opponent(conversation)
+		self == conversation.sender ? conversation.recipient : conversation.sender
+	end
+
 	private
 
 	def set_default_role

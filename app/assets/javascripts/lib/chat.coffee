@@ -2,6 +2,8 @@
 
 do (init = ($, window, document) ->
 
+	window.fayeClient = new Faye.Client('/faye')
+
 	$ ->
 		$messageListNanoEl = $('.messages .list .nano')
 		$messageListNanoContentEl = $('.messages .list .nano-content')
@@ -58,10 +60,8 @@ do (init = ($, window, document) ->
 		# To cancel con's submit hook behavior and validate message before sending
 		$messageSendForm.off('submit').on 'submit', -> $messageBodyEl.val().trim().length > 0
 
-		# Subscribe to redis channel for real time chat function
-		eventSource = new EventSource(Routes.events_conversations_path())
-		eventSource.addEventListener 'message', (e) ->
-			data = JSON.parse e.data
+		# Subscribe to faye channel for real time chat function
+		window.fayeClient.subscribe "/messages/#{R.uid}", (data) ->
 			if data.conversation_id is current_conversation_id
 				$newMsg = $(messageHtml(data))
 				$messageListNanoContentEl.append $newMsg
