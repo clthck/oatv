@@ -63,6 +63,25 @@ class ClipsController < ApplicationController
     render json: {}
 	end
 
+	def search
+		@matches = current_user.club.matches.order(date: :desc)
+		@clip_categories = ClipCategory.all
+
+		clip_category_id = params[:clip_category_id]
+		if clip_category_id.present?
+			@clips = Clip.where(category_id: clip_category_id)
+		end
+
+		if params[:match_id].present?
+			video_ids = current_match.videos.pluck(:id)
+		else
+			video_ids = []
+			@matches.each { |match| video_ids += match.videos.pluck(:id) }
+		end
+
+		@clips = @clips.where(video_id: video_ids)
+	end
+
 	private
 
 	# Add breadcrumbs for parent objects

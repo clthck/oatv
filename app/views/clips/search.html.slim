@@ -1,0 +1,27 @@
+- content_for :page_title, 'Search Clips'
+
+.row: .col.s10.offset-s1: .row
+  = form_tag nil, method: :get
+    .col.s4
+      p Match
+      = select_tag :match_id, options_from_collection_for_select(@matches, :id, :name, params[:match_id]), prompt: 'All'
+    .col.s4
+      p Clip Category
+      = select_tag :clip_category_id, options_from_collection_for_select(@clip_categories, :id, :name, params[:clip_category_id]), prompt: 'All'
+    .col.s4
+      = button_tag 'Search', class: 'btn waves-effect waves-light'
+
+- if params[:match_id]
+  table#clips-table.display.table.table-bordered.table-striped.table-hover.fluid-width
+    thead: tr
+      th Category
+      th Name
+      th Start
+      th End
+    tbody
+      - @clips.each do |clip|
+        tr
+          td= clip.category.name
+          td= clip.name
+          td= clip.start
+          td= clip.end

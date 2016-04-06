@@ -132,7 +132,11 @@ Rails.application.routes.draw do
   end
 
   resources :clips, only: [] do
-    get :for_me, on: :collection
+    collection do
+      get :for_me
+      get :search
+    end
+
     post :log_player_activity_on, on: :member
   end
 
