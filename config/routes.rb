@@ -72,6 +72,8 @@ Rails.application.routes.draw do
   root to: 'pages#show', id: 'home'
 
   # user_root_path for devise sign_in/sign_up redirect
+  get '/dashboard' => 'dashboard#index_for_coach', constraints: lambda { |request| request.env['warden'].user.is? :coach  }
+  get '/dashboard' => 'dashboard#index_for_player', constraints: lambda { |request| request.env['warden'].user.is? :player }
   get '/dashboard' => 'dashboard#index', as: :user_root
 
   resources :dashboard, only: [:index] do

@@ -6,6 +6,13 @@ class DashboardController < ApplicationController
 	def index
 	end
 
+	def index_for_coach
+		@activities = PublicActivity::Activity.where(key: 'clip.watch').limit(6)
+	end
+
+	def index_for_player
+	end
+
 	# PUT
 	def update_yaybar_hidden_state
 		cookies.permanent[:yaybar_hidden] = params[:yaybar_hidden]

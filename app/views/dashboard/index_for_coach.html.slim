@@ -1,0 +1,8 @@
+- content_for :page_title, "Dashboard"
+
+.row
+  - @activities.each do |activity|
+    .col.s4
+      h4= activity.trackable.video.title
+      h6 #{activity.trackable.name} (#{activity.trackable.category.name})
+      p #{activity.owner.display_name} watched this
