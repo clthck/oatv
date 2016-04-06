@@ -10,6 +10,8 @@ class Clip < ActiveRecord::Base
 
   has_many :clip_questions
 
+  include PublicActivity::Common
+
   # Handles create, update and remove action of DataTables Editor
 	# and returns json hash
 	# for video

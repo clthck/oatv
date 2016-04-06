@@ -23,6 +23,10 @@ R.pages['clips-for_me'] = do ($ = jQuery, window, document) ->
 					video.pause()
 					video.off 'timeupdate', monitorClip
 			video.on 'timeupdate', monitorClip
+			# Track player's activity
+			$.ajax
+				type: 'post'
+				url: Routes.log_player_activity_on_clip_path($this.data('clip-id'))
 
 		$('#clips-list-wrapper').height $('#video-clip-wrapper').height()
 

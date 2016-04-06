@@ -131,6 +131,7 @@ Rails.application.routes.draw do
 
   resources :clips, only: [] do
     get :for_me, on: :collection
+    post :log_player_activity_on, on: :member
   end
 
   resources :conversations, only: [:create] do

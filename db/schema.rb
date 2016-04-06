@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160311025647) do
+ActiveRecord::Schema.define(version: 20160406013456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.integer  "trackable_id",   index: {name: "index_activities_on_trackable_id_and_trackable_type", with: ["trackable_type"]}
+    t.string   "trackable_type", index: {name: "fk__activities_trackable_id", with: ["trackable_id"]}
+    t.integer  "owner_id",       index: {name: "index_activities_on_owner_id_and_owner_type", with: ["owner_type"]}
+    t.string   "owner_type",     index: {name: "fk__activities_owner_id", with: ["owner_id"]}
+    t.string   "key"
+    t.text     "parameters"
+    t.integer  "recipient_id",   index: {name: "index_activities_on_recipient_id_and_recipient_type", with: ["recipient_type"]}
+    t.string   "recipient_type", index: {name: "fk__activities_recipient_id", with: ["recipient_id"]}
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "clip_categories", force: :cascade do |t|
     t.string "name", index: {name: "index_clip_categories_on_name", unique: true}

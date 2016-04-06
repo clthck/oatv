@@ -58,6 +58,11 @@ class ClipsController < ApplicationController
 		@clips = current_user.becomes(Player).clips.order('clip_players.created_at desc')
 	end
 
+	def log_player_activity_on
+    Clip.find(params[:id]).create_activity action: :watch, owner: current_user
+    render json: {}
+	end
+
 	private
 
 	# Add breadcrumbs for parent objects

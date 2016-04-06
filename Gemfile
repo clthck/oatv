@@ -54,6 +54,7 @@ gem 'js-routes'
 gem 'remotipart'
 
 gem 'activerecord-import'
+gem 'public_activity'
 
 # gem 'protected_attributes'
 
