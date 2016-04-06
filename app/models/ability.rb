@@ -52,6 +52,7 @@ class Ability
       can :manage, Clip
       can :manage, Playlist
       can :players, Club
+      can :show, User
     elsif user.is? :player
       can :for_me, Clip
       can :log_player_activity_on, Clip

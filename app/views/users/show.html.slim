@@ -1,0 +1,7 @@
+- content_for :page_title, 'Player Profile'
+
+= image_tag @user.profile.avatar.url(:medium), class: 'circle'
+h4= @user.display_name
+p Date of Birth: #{l @user.profile.birthday}
+
+p #{@user.display_name} watched #{@total_clips_watched} footages out of #{@total_clips_assigned} assigned.
