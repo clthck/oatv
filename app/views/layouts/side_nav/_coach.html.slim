@@ -43,6 +43,11 @@ li class="#{cp clip_categories_path}"
 		i.fa.fa-cog
 		| Clip Categories
 
+li class="#{cp search_clips_path}"
+	= link_to search_clips_path, class: "waves-effect waves-blue"
+		i.fa.fa-cog
+		| Clips
+
 li class="#{cp(playlists_path) || cp_against_ca('clips#index_on_playlist')}"
 	= link_to playlists_path, class: "waves-effect waves-blue"
 		i.fa.fa-cog
