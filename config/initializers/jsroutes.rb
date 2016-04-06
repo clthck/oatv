@@ -20,5 +20,6 @@ JsRoutes.setup do |config|
 		/^conversations$/,
 		/^conversation_messages$/,
 		/^log_player_activity_on_clip$/,
+		/^user$/,
 	]
 end

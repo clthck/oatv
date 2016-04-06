@@ -6,6 +6,9 @@ class UsersController < ApplicationController
     @total_clips_watched = PublicActivity::Activity.where(key: 'clip.watch', owner: @user).select(:trackable_id).distinct.count
   end
 
+  def list_players
+  end
+
   private
 
     def set_user

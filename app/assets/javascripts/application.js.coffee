@@ -37,3 +37,4 @@
 # = require_tree ./sections/clip_categories/
 # = require_tree ./sections/clips/
 # = require_tree ./sections/playlists/
+# = require_tree ./sections/users/

@@ -141,4 +141,6 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show]
+
+  get '/players' => 'users#list_players'
 end
