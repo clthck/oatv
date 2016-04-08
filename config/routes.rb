@@ -102,8 +102,6 @@ Rails.application.routes.draw do
     get :stats, on: :member
 
     resources :videos, except: [:edit, :update, :show] do
-      get :analyze_data, on: :member
-
       resources :clips, only: [:index] do
         collection do
           post :datatables_editor_cud

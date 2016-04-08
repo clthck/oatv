@@ -29,10 +29,8 @@ class VideosController < ApplicationController
 						File.open filename, 'wb' do |file|
 							file.write @uploaded_file.read
 						end
-						session[:analysis_data_file_info] = {
-							file_name: filename,
-							content_type: @uploaded_file.content_type
-						}
+						analyzer = ClipDataAnalysis.new(@video, filename, @uploaded_file.content_type)
+						analyzer.analyze
 					end
 					flash[:notice] = "Video has been successfully added!"
 				else
@@ -41,23 +39,7 @@ class VideosController < ApplicationController
 			rescue Yt::Errors::RequestError => e
 				flash[:alert] = "Youtube video does not seem to be valid."
 			end
-			format.js
-		end
-	end
-
-	# GET, Content-Type: text/event-stream
-	def analyze_data
-		file_info = session[:analysis_data_file_info]
-		if file_info
-			response.headers['Content-Type'] = 'text/event-stream'
-			analyzer = ClipDataAnalysis.new @video, file_info['file_name']['path'], file_info['content_type']
-			analyzer.analyze do |percent|
-				response.stream.write "id: IN_PROGRESS\n\n"
-				response.stream.write "data: #{percent.round}\n\n"
-			end
-			session.delete :analysis_data_file_info
-			response.stream.write "id: FINISHED\n\ndata: \n\n"
-			response.stream.close
+			respond_with @video, location: match_videos_path
 		end
 	end
 

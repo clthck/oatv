@@ -9,7 +9,4 @@ R.pages['videos-new'] = do ($ = jQuery, window, document) ->
 		$('#new_video').on 'submit', (e) ->
 			$(this).materialBlock()
 
-		.on 'ajax:success', ->
-			$(this).materialUnblock()
-
 	{ run: run }
