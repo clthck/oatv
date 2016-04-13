@@ -34,36 +34,38 @@ Run the following command to install bower:
 sudo npm install -g bower
 ```
 
-### Redis
-
-OATV uses [redis](http://redis.io) for built-in real-time chat room feature.
-So redis must be installed before running OATV. Default redis server configuration will be sufficient for OATV application.
-You can [download](http://redis.io/download) and manually install it, as shown in the following command:
-```shell
-cd ~
-wget http://download.redis.io/releases/redis-3.0.7.tar.gz
-tar xzf redis-3.0.7.tar.gz
-cd redis-3.0.7
-make
-```
-Now add redis executable path to `PATH` env variable.
-```shell
-echo 'export PATH=~/redis-3.0.7/src:$PATH' >> ~/.bash_profile
-```
-
 ### Environment Variables
 
 OATV uses environment variables for some configurations.
 Run the following commands to set necessary env vars properly.
+
+(If you are in zsh, use `.zshrc` instead of `.bash_profile`.)
 ```shell
-echo 'export OATV_RAILS_SERVER_BINDING="your public server IP"' >> ~/.bash_profile
+echo 'export OATV_SMTP_DOMAIN="SMTP domain"' >> ~/.bash_profile
+echo 'export OATV_YOUTUBE_API_KEY="youtube_api_key"' >> ~/.bash_profile
+```
+
+These are environment (Rails environment) specific variables:
+__development__, __test__
+```shell
 echo 'export OATV_POSTGRES_USERNAME="pg_username"' >> ~/.bash_profile
 echo 'export OATV_POSTGRES_PASSWORD="pg_password"' >> ~/.bash_profile
+```
+
+__development__
+```shell
 echo 'export OATV_POSTGRES_DATABASE_DEVELOPMENT="oatv_development"' >> ~/.bash_profile
+```
+
+__test__
+```shell
 echo 'export OATV_POSTGRES_DATABASE_TEST="oatv_test"' >> ~/.bash_profile
-echo 'export OATV_POSTGRES_DATABASE_PRODUCTION="oatv_production"' >> ~/.bash_profile
-echo 'export OATV_ACTION_MAILER_HOST="your_servers_public_ip"' >> ~/.bash_profile
-echo 'export OATV_YOUTUBE_API_KEY="youtube_api_key"' >> ~/.bash_profile
+```
+
+__production__
+```shell
+echo 'export DATABASE_URL="postgres://pg_username:pg_password@localhost:5432/oatv_production"' >> ~/.bash_profile
+echo 'export SECRET_KEY_BASE="random secret key here"' >> ~/.bash_profile
 ```
 
 ### Final Preparations
@@ -83,6 +85,11 @@ Now we're ready to run OATV application.
 ### Development Mode
 
 ```shell
-redis-server
-rails s
+bundle exec rails s
+```
+
+### Production Mode
+
+```shell
+bundle exec rails s -e production -d
 ```

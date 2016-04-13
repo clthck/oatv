@@ -39,6 +39,9 @@ module Oatv
     config.action_controller.action_on_unpermitted_parameters = :raise
     config.action_view.embed_authenticity_token_in_remote_forms = true
 
+    config.action_mailer.default_url_options = { host: Rails.application.secrets.smtp_domain }
+    config.action_mailer.delivery_method = :sendmail
+
     Yt.configure do |config|
       config.api_key = ENV['OATV_YOUTUBE_API_KEY']
     end

@@ -25,3 +25,6 @@
 
 # Ignore redis dump file.
 /dump.rdb
+
+# Ignore foreman env file that will be used in accordance with Procfile
+/.env
