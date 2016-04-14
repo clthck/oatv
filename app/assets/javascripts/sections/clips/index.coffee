@@ -173,4 +173,16 @@ R.pages['clips-index'] = do ($ = jQuery, window, document) ->
 			CPW.setStates start: $(@).data('clip-start'), end: $(@).data('clip-end')
 			CPW.play()
 
+		# Make clip preview panel sticky
+		$clipPreviewPanelEl = $('#clip-preview-panel')
+		$clipPreviewPanelEl.data 'original-offset', $clipPreviewPanelEl.offset()
+		$('body.nano').on 'update', (e, v) ->
+			offset = $clipPreviewPanelEl.offset()
+			if v.position > 100
+				offset.top = 80
+				$clipPreviewPanelEl.offset offset
+			else if v.position < 10
+				offset.top = $clipPreviewPanelEl.data('original-offset').top
+				$clipPreviewPanelEl.offset offset
+
 	{ run: run }
