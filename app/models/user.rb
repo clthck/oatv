@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
 	end
 
 	def avatar
-		self.profile ? self.profile.avatar.url(:thumb) : 'default_avatar'
+		self.profile ? self.profile.avatar.url(:thumb) : 'default_avatar.png'
 	end
 
 	def opponent(conversation)

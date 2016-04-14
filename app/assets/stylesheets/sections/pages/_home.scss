@@ -5,7 +5,7 @@
 
 @mixin MyiPhone($container) {
 	#{$container} {
-		background-image: url(bg-apple-stuff.jpg);
+		background-image: image-url(bg-apple-stuff);
 		background-color: #7f8c8d;
 		color: #333;
 		height: 979px;
@@ -489,7 +489,7 @@
 
 	#reminder div:first-child {
 		// background: #fff;
-		background: url(logo-32x32-white.png);
+		background: image-url(logo-32x32-white);
 		background-size: 100%;
 		width: 24px;
 		height: 24px;

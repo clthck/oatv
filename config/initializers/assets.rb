@@ -10,3 +10,4 @@ Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'bo
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 Rails.application.config.assets.precompile += %w( html5shiv/dist/html5shiv.min.js static.css.scss static.js bubble.css.scss bubble.js head.js )
+Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/

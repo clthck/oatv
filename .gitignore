@@ -28,3 +28,6 @@
 
 # Ignore foreman env file that will be used in accordance with Procfile
 /.env
+
+# Ignore precompiled assets
+/public/assets/*

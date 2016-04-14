@@ -66,16 +66,7 @@ __production__
 ```shell
 echo 'export DATABASE_URL="postgres://pg_username:pg_password@localhost:5432/oatv_production"' >> ~/.bash_profile
 echo 'export SECRET_KEY_BASE="random secret key here"' >> ~/.bash_profile
-```
-
-### Final Preparations
-
-```shell
-cd ~/oatv
-bundle install
-bower install
-rake db:migrate
-rake db:seed
+echo 'export RAILS_SERVE_STATIC_FILES="true"' >> ~/.bash_profile
 ```
 
 ## Running OATV
@@ -85,11 +76,21 @@ Now we're ready to run OATV application.
 ### Development Mode
 
 ```shell
+cd ~/oatv
+bundle install
+bower install
+bundle exec rake db:migrate
+bundle exec rake db:seed
 bundle exec rails s
 ```
 
 ### Production Mode
 
 ```shell
+bundle install --deployment --without development test
+bundle exec rake db:create RAILS_ENV=production
+bundle exec rake db:migrate RAILS_ENV=production
+bundle exec rake db:seed RAILS_ENV=production
+bundle exec rake assets:precompile RAILS_ENV=production
 bundle exec rails s -e production -d
 ```

@@ -8,7 +8,7 @@
 		= form_for @video, url: match_videos_path(@current_match),
 			html: { enctype: 'multipart/form-data' } do |f|
 			.card-image
-				= image_tag 'match_videos_banner'
+				= image_tag 'match_videos_banner.png'
 				.card-title.fluid-width.center-align style="text-shadow: 0 2px 6px #424242, 0 2px 6px #424242;"
 					.fs-30.fw-400= @current_match.name
 					.fs-16.light= l @current_match.date
