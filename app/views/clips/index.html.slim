@@ -1,14 +1,21 @@
 - content_for :page_title, "Match Video Clips"
 
-.card-panel
-	table#clips-table.display.table.table-bordered.table-striped.table-hover.fluid-width
-		thead: tr
-			th
-			th Category
-			th Name
-			th Start
-			th End
-		tbody
+.row
+	.col.s9
+		.card-panel
+			table#clips-table.display.table.table-bordered.table-striped.table-hover.fluid-width
+				thead: tr
+					th
+					th Category
+					th Name
+					th Start
+					th End
+					th
+				tbody
+	.col.s3
+		.card-panel
+			h4.mb-30 Clip Preview
+			= react_component 'ClipPreviewWidget', videoUrl: @current_video.url, clipStart: 0, clipEnd: 0, prerender: true
 
 #playlists-popup.modal.mw-500
 	= form_tag datatables_editor_cud_match_video_clips_path, remote: true, method: :post do

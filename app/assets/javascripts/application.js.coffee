@@ -26,6 +26,9 @@
 # = require datatables-editor/plugins/editor.mask
 # = require datatables-plugins/api/row().show()
 # = require faye
+# = require react
+# = require react_ujs
+# = require components
 
 # = require con-material-admin-dashboard/_con
 

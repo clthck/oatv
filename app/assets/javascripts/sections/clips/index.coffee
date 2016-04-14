@@ -46,6 +46,10 @@ class ClipsHelper
 				}, {
 					data: 'end'
 					render: (data) -> moment().startOf('year').seconds(data).format('HH:mm:ss')
+				}, {
+					data: null, orderable: no, width: '10px'
+					render: (data) ->
+						"<a class='preview-clip' data-clip-start='#{data.start}' data-clip-end='#{data.end}' href='javascript:;'>Preview</a>"
 				}
 			]
 			select: {
@@ -162,4 +166,11 @@ R.pages['clips-index'] = do ($ = jQuery, window, document) ->
 
 		ClipsHelper.initClipsDataTable()
 		ClipsHelper.initPlayersDataTable()
+
+		$('#clips-table').on 'click', '.preview-clip', ->
+			CPW = R.ClipPreviewWidget
+			return unless CPW?
+			CPW.setStates start: $(@).data('clip-start'), end: $(@).data('clip-end')
+			CPW.play()
+
 	{ run: run }

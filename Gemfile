@@ -56,6 +56,9 @@ gem 'remotipart'
 gem 'activerecord-import'
 gem 'public_activity'
 
+gem 'react-rails', '~> 1.6.0'
+gem 'sprockets-coffee-react'
+
 # gem 'protected_attributes'
 
 # Use ActiveModel has_secure_password
