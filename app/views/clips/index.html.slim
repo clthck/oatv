@@ -1,7 +1,7 @@
 - content_for :page_title, "Match Video Clips"
 
 .row
-	.col.s9
+	.col.s8
 		.card-panel
 			table#clips-table.display.table.table-bordered.table-striped.table-hover.fluid-width
 				thead: tr
@@ -12,7 +12,7 @@
 					th End
 					th
 				tbody
-	.col.s3
+	.col.s4
 		.card-panel#clip-preview-panel
 			h4.mb-30 Clip Preview
 			= react_component 'ClipPreviewWidget', videoUrl: @current_video.url, clipStart: 0, clipEnd: 0, prerender: true
