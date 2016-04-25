@@ -12,16 +12,25 @@
       = button_tag 'Search', class: 'btn waves-effect waves-light'
 
 - if params[:match_id]
-  table#clips-table.display.table.table-bordered.table-striped.table-hover.fluid-width
-    thead: tr
-      th Category
-      th Name
-      th Start
-      th End
-    tbody
-      - @clips.each do |clip|
-        tr
-          td= clip.category.name
-          td= clip.name
-          td= clip.start
-          td= clip.end
+  .row
+    .col.s8
+      .card-panel
+        table#clips-table.display.table.table-bordered.table-striped.table-hover.fluid-width
+          thead: tr
+            th Category
+            th Name
+            th Start
+            th End
+            th
+          tbody
+            - @clips.each do |clip|
+              tr
+                td= clip.category.name
+                td= clip.name
+                td= Time.at(clip.start).utc.strftime("%H:%M:%S")
+                td= Time.at(clip.end).utc.strftime("%H:%M:%S")
+                td= link_to 'Preview', 'javascript:;', class: 'preview-clip', data: { clip_start: clip.start, clip_end: clip.end }
+    .col.s4
+      .card-panel#clip-preview-panel
+        h4.mb-30 Clip Preview
+        = react_component 'ClipPreviewWidget', videoUrl: @clips[0].video.url, clipStart: 0, clipEnd: 0, prerender: true
