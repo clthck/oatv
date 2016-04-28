@@ -105,5 +105,11 @@ do (init = ($, window, document) ->
 				url: Routes.update_yaybar_hidden_state_dashboard_index_path()
 				data: { yaybar_hidden: $bodyEl.hasClass('yay-hide') }
 
+  ###
+  Handle turbolinks events
+  ###
+	$(document).on 'page:load', ->
+		conApp.initMaterialPlugins()
+
 ) ->
 	init window.jQuery, window, document
