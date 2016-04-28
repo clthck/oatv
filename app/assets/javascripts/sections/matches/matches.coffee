@@ -18,6 +18,10 @@ class MatchesHelper
 			i18n: {
 				create: { title: "Add New Match", submit: "Add" }
 				edit: { title: "Edit Match" }
+				remove:
+					confirm:
+						"_": "This will delete all associated videos as well. Are you sure you wish to delete %d matches?"
+						"1": "This will delete all associated videos as well. Are you sure you wish to delete 1 match?"
 			}
 
 		table = $table.DataTable

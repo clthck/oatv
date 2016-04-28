@@ -2,7 +2,7 @@ class Match < ActiveRecord::Base
   belongs_to :club
   belongs_to :category, class_name: 'MatchCategory'
 
-  has_many :videos
+  has_many :videos, dependent: :destroy
   has_one :match_stat
   accepts_nested_attributes_for :match_stat
 
